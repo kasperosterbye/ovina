@@ -4,7 +4,6 @@ I represent an Ovina Ram.
 For the Responsibility part: Three sentences about my main responsibilities - what I do, what I know.
 I can read rams from a CSV file, write them to a file, and can open a TreePresenter. 
 
-OvinaRam example.
  
 Internal Representation and Key Implementation Points.
 
@@ -20,7 +19,7 @@ Internal Representation and Key Implementation Points.
 "
 Class {
 	#name : #OvinaRam,
-	#superclass : #Object,
+	#superclass : #OvinaSheep,
 	#instVars : [
 		'ramId',
 		'name',
@@ -55,36 +54,19 @@ OvinaRam class >> csvContents [
 	^neoReader.
 ]
 
-{ #category : #example }
-OvinaRam class >> example [
-	self new open
-		
-]
-
-{ #category : #'ui building' }
-OvinaRam class >> exampleTableDemo [
-	| tree |
-tree := TreePresenter new.
-
-tree columns: (Array 
-	with: (TreeColumnPresenter  new displayBlock: [:node | node content first asString ]; headerLabel: 'Name'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content second asString ]; headerLabel: 'Last Name'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content third asString ]; headerLabel: 'Age'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content fourth asString ]; headerLabel: 'Gender'; yourself)).
-	
-tree roots: {
-	{'Benjamin'.'Van Ryseghem'.'26'.'M'}.
-	{'Pamela'.'Anderson'.'Far too much'.'F'}
-}.
-
-tree openWithSpec.
-]
-
 { #category : #'instance manager' }
 OvinaRam class >> fileContents [
 	"comment stating purpose of message"
 
 	^'/Users/kasper/_Projects/Pharo/ovina_csv/rams.csv' asFileReference readStream
+]
+
+{ #category : #'instance manager' }
+OvinaRam class >> loadRams [
+	manager := OvinaSheepManager new.
+	self csvContents do: [ :ram | manager add: ram at: ram ramId]
+	
+	
 ]
 
 { #category : #'instance manager' }
