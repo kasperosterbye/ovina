@@ -12,6 +12,13 @@ Class {
 	#category : #Ovina
 }
 
+{ #category : #accessing }
+OvinaSheep class >> manager [
+	manager isNil
+		ifTrue: [ manager := OvinaSheepManager new ].
+	^manager
+]
+
 { #category : #acccessing }
 OvinaSheep >> chr [ 
 	self subclassResponsibility.

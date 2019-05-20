@@ -33,75 +33,32 @@ Class {
 
 { #category : #'instance manager' }
 OvinaRam class >> allRams [
-	^self csvContents upToEnd
-]
-
-{ #category : #'instance manager' }
-OvinaRam class >> csvContents [
-	| neoReader |
-	neoReader := NeoCSVReader on: (self fileContents ).
-	"'ramID' 'name' 'chr' 'number' 'inDate' 'race'"
-	neoReader 
-		separator: $; ;
-		recordClass: self;
-		addIntegerField: #ramId:;
-		addField: #name:;
-		addIntegerField: #chr:;
-		addIntegerField: #number:;
-		addField: #inDate: converter: [ :s | Date  fromString: s]	;
-		addField: #race:;
-		skipHeader.
-	^neoReader.
-]
-
-{ #category : #'instance manager' }
-OvinaRam class >> fileContents [
-	"comment stating purpose of message"
-
-	^'/Users/kasper/_Projects/Pharo/ovina_csv/rams.csv' asFileReference readStream
+	self shouldBeImplemented. "Need to return the rams of the manager"
 ]
 
 { #category : #'instance manager' }
 OvinaRam class >> loadRams [
+	| loader rams |
 	manager := OvinaSheepManager new.
-	self csvContents do: [ :ram | manager add: ram at: ram ramId]
-	
-	
+	loader := OvinaSheepLoader default.
+	rams := loader loadRams.
+	rams do: [ :ram | manager add: ram at: ram ramId ]
 ]
 
 { #category : #'instance manager' }
 OvinaRam class >> noRam [
-	| noRam | 
-	noRam := OvinaRam new.
-	noRam 
+	"I am a nil for rams - just an empty thing to make implementing the UI easier"
+
+	| noRam |
+	noRam := self new.
+	noRam
 		ramId: 'ID';
 		name: 'Navn';
 		chr: 'CHR';
 		number: 'Nummer';
 		inDate: 'Ind dato';
 		race: 'Race'.
-	^noRam
-		
-]
-
-{ #category : #'ui building' }
-OvinaRam class >> openDemo [
-"self class "
-	| tree |
-tree := TreePresenter new.
-
-tree columns: (Array 
-	with: (TreeColumnPresenter  new displayBlock: [:node | node content first asString ]; headerLabel: 'Name'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content second asString ]; headerLabel: 'Last Name'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content third asString ]; headerLabel: 'Age'; yourself)
-	with: (TreeColumnPresenter new displayBlock: [:node | node content fourth asString ]; headerLabel: 'Gender'; yourself)).
-	
-tree roots: {
-	{'Benjamin'.'Van Ryseghem'.'26'.'M'}.
-	{'Pamela'.'Anderson'.'Far too much'.'F'}
-}.
-
-tree openWithSpec.
+	^ noRam
 ]
 
 { #category : #accessing }
