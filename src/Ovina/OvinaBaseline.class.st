@@ -28,7 +28,13 @@ OvinaBaseline >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ self neoCSVDependency: spec ]
+		do: [ 
+			"packages"
+			spec 
+				package: 'Ovina';
+				package: 'Ovina-Tests' with: [ spec requires: #('Ovina') ].
+			"dependencies"
+			self  neoCSVDependency: spec ]
 ]
 
 { #category : #baselines }
