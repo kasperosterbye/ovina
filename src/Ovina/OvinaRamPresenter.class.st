@@ -13,7 +13,7 @@ Class {
 		'ram',
 		'ramChangedBlock'
 	],
-	#category : #Ovina
+	#category : #'Ovina-GUI'
 }
 
 { #category : #specs }

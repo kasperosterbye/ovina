@@ -28,38 +28,8 @@ Class {
 		'inDate',
 		'race'
 	],
-	#category : #Ovina
+	#category : #'Ovina-Model'
 }
-
-{ #category : #'instance manager' }
-OvinaRam class >> allRams [
-	self shouldBeImplemented. "Need to return the rams of the manager"
-]
-
-{ #category : #'instance manager' }
-OvinaRam class >> loadRams [
-	| loader rams |
-	manager := OvinaSheepManager new.
-	loader := OvinaSheepLoader default.
-	rams := loader loadRams.
-	rams do: [ :ram | manager add: ram at: ram ramId ]
-]
-
-{ #category : #'instance manager' }
-OvinaRam class >> noRam [
-	"I am a nil for rams - just an empty thing to make implementing the UI easier"
-
-	| noRam |
-	noRam := self new.
-	noRam
-		ramId: 'ID';
-		name: 'Navn';
-		chr: 'CHR';
-		number: 'Nummer';
-		inDate: 'Ind dato';
-		race: 'Race'.
-	^ noRam
-]
 
 { #category : #accessing }
 OvinaRam >> chr [

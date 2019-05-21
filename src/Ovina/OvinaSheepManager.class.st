@@ -14,7 +14,7 @@ Class {
 		'loader',
 		'sheeps'
 	],
-	#category : #Ovina
+	#category : #'Ovina-ModelManager'
 }
 
 { #category : #adding }

@@ -13,6 +13,14 @@ OvinaSheepLoaderTest >> testDefault [
 ]
 
 { #category : #tests }
+OvinaSheepLoaderTest >> testLambLoadNotNil [
+	| lambs |
+	lambs := OvinaSheepLoader default loadLambs.
+	self assert: lambs class equals: Array.
+	self assert: lambs size > 0 equals: true
+]
+
+{ #category : #tests }
 OvinaSheepLoaderTest >> testRamLoad [
 	| rams |
 	rams := OvinaSheepLoader default loadRams.

@@ -34,7 +34,7 @@ Class {
 		'color',
 		'comment'
 	],
-	#category : #Ovina
+	#category : #'Ovina-Model'
 }
 
 { #category : #'instance manager' }

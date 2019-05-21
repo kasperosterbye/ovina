@@ -9,7 +9,7 @@ Class {
 	#classInstVars : [
 		'manager'
 	],
-	#category : #Ovina
+	#category : #'Ovina-Model'
 }
 
 { #category : #accessing }

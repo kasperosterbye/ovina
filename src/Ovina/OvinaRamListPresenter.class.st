@@ -13,7 +13,7 @@ Class {
 		'ram',
 		'view'
 	],
-	#category : #Ovina
+	#category : #'Ovina-GUI'
 }
 
 { #category : #specs }

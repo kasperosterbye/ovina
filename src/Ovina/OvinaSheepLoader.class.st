@@ -13,16 +13,16 @@ Class {
 	#classInstVars : [
 		'defaultLoader'
 	],
-	#category : #Ovina
+	#category : #'Ovina-ModelManager'
 }
 
 { #category : #accessing }
 OvinaSheepLoader class >> default [
 	"return a default loader"
-	defaultLoader isNil 
-		ifTrue: [ defaultLoader := OvinaCSVLoader new ].
-	^ defaultLoader 
-	
+
+	defaultLoader isNil
+		ifTrue: [ ^ OvinaCSVLoader new ].
+	^ defaultLoader
 ]
 
 { #category : #accessing }

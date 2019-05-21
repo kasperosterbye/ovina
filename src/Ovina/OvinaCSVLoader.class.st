@@ -11,7 +11,7 @@ Class {
 		'lambFile',
 		'eveFile'
 	],
-	#category : #Ovina
+	#category : #'Ovina-ModelManager'
 }
 
 { #category : #accessing }
@@ -34,18 +34,18 @@ OvinaCSVLoader >> lambFile [
 ]
 
 { #category : #'instance manager' }
-OvinaCSVLoader >> lambsFromCSV [
-| neoReader |
-	neoReader := NeoCSVReader on: (self fileContents ).
+OvinaCSVLoader >> loadLambs [
+	| neoReader |
+	neoReader := NeoCSVReader on: self lambFile.
 	"lambID number momFK dadFK inDate event sex growth usage color comment"
-	neoReader 
-		separator: $; ;
-		recordClass: self;
+	neoReader
+		separator: $;;
+		recordClass: OvinaLamb ;
 		addIntegerField: #lambID:;
 		addIntegerField: #number:;
 		addIntegerField: #momFK:;
 		addIntegerField: #dadFK:;
-		addField: #inDate: converter: [ :s | Date  fromString: s]	;
+		addField: #inDate: converter: [ :s | Date fromString: s ];
 		addField: #event:;
 		addField: #sex:;
 		addIntegerField: #growth:;
@@ -53,7 +53,7 @@ OvinaCSVLoader >> lambsFromCSV [
 		addField: #color:;
 		addField: #comment:;
 		skipHeader.
-	^neoReader.
+	^ neoReader upToEnd
 ]
 
 { #category : #'instance manager' }

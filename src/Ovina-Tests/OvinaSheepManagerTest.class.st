@@ -8,6 +8,14 @@ Class {
 }
 
 { #category : #tests }
+OvinaSheepManagerTest >> testAllLambs [
+	| man |
+	OvinaLamb   loadLambs.
+	man := OvinaRam manager.
+	self assert: man size equals: 7
+]
+
+{ #category : #tests }
 OvinaSheepManagerTest >> testAllRams [
 	| man |
 	OvinaRam loadRams.
