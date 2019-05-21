@@ -45,3 +45,11 @@ OvinaSheepManagerTest >> testManagerReset [
 	man reset.
 	man allDo: [self fail]. 
 ]
+
+{ #category : #tests }
+OvinaSheepManagerTest >> testPingoLamb [
+	| pingo |
+	OvinaLamb loadLambs.
+	pingo := OvinaLamb manager at: 7.
+	self assert: pingo comment equals: 'Pingo - Kasper tester'.
+]

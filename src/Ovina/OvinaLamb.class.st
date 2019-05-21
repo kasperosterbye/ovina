@@ -38,37 +38,8 @@ Class {
 }
 
 { #category : #'instance manager' }
-OvinaLamb class >> csvContents [
-	| neoReader |
-	neoReader := NeoCSVReader on: (self fileContents ).
-	"lambID number momFK dadFK inDate event sex growth usage color comment"
-	neoReader 
-		separator: $; ;
-		recordClass: self;
-		addIntegerField: #lambID:;
-		addIntegerField: #number:;
-		addIntegerField: #momFK:;
-		addIntegerField: #dadFK:;
-		addField: #inDate: converter: [ :s | Date  fromString: s]	;
-		addField: #event:;
-		addField: #sex:;
-		addIntegerField: #growth:;
-		addField: #usage:;
-		addField: #color:;
-		addField: #comment:;
-		skipHeader.
-	^neoReader.
-]
-
-{ #category : #'instance manager' }
-OvinaLamb class >> fileContents [
-	"comment stating purpose of message"
-
-	^'/Users/kasper/_Projects/Pharo/ovina_csv/lambs.csv' asFileReference readStream
-]
-
-{ #category : #'instance manager' }
 OvinaLamb class >> loadLambs [
+	"I put the loaded lambs in the lamb manager"
 	| man |
 	man := self manager.
 	OvinaSheepLoader default loadLambs 
@@ -77,7 +48,7 @@ OvinaLamb class >> loadLambs [
 
 { #category : #accessing }
 OvinaLamb >> chr [
-	^ self shouldBeImplemented
+	^112633
 ]
 
 { #category : #accessing }

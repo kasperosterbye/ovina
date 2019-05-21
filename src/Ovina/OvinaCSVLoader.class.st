@@ -15,7 +15,7 @@ Class {
 }
 
 { #category : #accessing }
-OvinaCSVLoader >> eveFile [
+OvinaCSVLoader >> eweFile [
 	^ eveFile 
 		asFileReference readStream.
 ]
@@ -31,6 +31,12 @@ OvinaCSVLoader >> initialize [
 OvinaCSVLoader >> lambFile [
 	^ lambFile 
 		asFileReference readStream.
+]
+
+{ #category : #loading }
+OvinaCSVLoader >> loadEwes [
+	"return a collection of Eves"
+	self subclassResponsibility 
 ]
 
 { #category : #'instance manager' }
