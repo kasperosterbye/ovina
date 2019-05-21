@@ -1,5 +1,13 @@
 "
-I implement loading from csv files
+I implement loading from csv files.
+
+I assume the following filenames:
+
+rams.csv
+ewes.csv
+lambs.csv
+
+They are files stored in the *path* instance variable
 
 
 "
@@ -7,33 +15,37 @@ Class {
 	#name : #OvinaCSVLoader,
 	#superclass : #OvinaSheepLoader,
 	#instVars : [
-		'ramFile',
-		'lambFile',
-		'eveFile'
+		'path'
 	],
 	#category : #'Ovina-ModelManager'
 }
 
-{ #category : #accessing }
+{ #category : #'instance creation' }
+OvinaCSVLoader class >> on: aPath [
+	"return a new loader which loads from aPath"
+	^self new
+		path: aPath;
+		yourself
+]
+
+{ #category : #files }
 OvinaCSVLoader >> eweFile [
-	^ eveFile 
+	^ (path , 'ewes.csv') 
 		asFileReference readStream.
 ]
 
 { #category : #initialization }
 OvinaCSVLoader >> initialize [
-	ramFile := '/Users/kasper/_Projects/Pharo/ovina_csv/rams.csv'.
-	lambFile := '/Users/kasper/_Projects/Pharo/ovina_csv/lambs.csv'.
-	eveFile := nil
+	path := '/Users/kasper/_Projects/Pharo/ovina_csv/'.
 ]
 
-{ #category : #accessing }
+{ #category : #files }
 OvinaCSVLoader >> lambFile [
-	^ lambFile 
+	^ (path , 'lambs.csv')  
 		asFileReference readStream.
 ]
 
-{ #category : #'instance manager' }
+{ #category : #loading }
 OvinaCSVLoader >> loadEwes [ 
 	| neoReader |
 	neoReader := NeoCSVReader on: self eweFile.
@@ -52,7 +64,7 @@ OvinaCSVLoader >> loadEwes [
 	^ neoReader upToEnd
 ]
 
-{ #category : #'instance manager' }
+{ #category : #loading }
 OvinaCSVLoader >> loadLambs [
 	| neoReader |
 	neoReader := NeoCSVReader on: self lambFile.
@@ -75,7 +87,7 @@ OvinaCSVLoader >> loadLambs [
 	^ neoReader upToEnd
 ]
 
-{ #category : #'instance manager' }
+{ #category : #loading }
 OvinaCSVLoader >> loadRams [
 	| neoReader |
 	neoReader := NeoCSVReader on: self ramFile.
@@ -93,8 +105,14 @@ OvinaCSVLoader >> loadRams [
 	^ neoReader upToEnd
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
+OvinaCSVLoader >> path: aPath [
+	"override the hardcoded path in initialize - for example for testing"
+	path := aPath
+]
+
+{ #category : #files }
 OvinaCSVLoader >> ramFile [
-	^ ramFile 
+	^ (path , 'rams.csv')  
 		asFileReference readStream.
 ]

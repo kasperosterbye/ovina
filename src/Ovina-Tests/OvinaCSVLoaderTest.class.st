@@ -2,21 +2,30 @@
 An OvinaSheepTest is a test class for testing the behavior of OvinaSheep
 "
 Class {
-	#name : #OvinaSheepManagerTest,
+	#name : #OvinaCSVLoaderTest,
 	#superclass : #TestCase,
 	#category : #'Ovina-Tests'
 }
 
-{ #category : #tests }
-OvinaSheepManagerTest >> testAllLambs [
-	| man |
-	OvinaLamb   loadLambs.
-	man := OvinaRam manager.
-	self assert: man size equals: 7
+{ #category : #running }
+OvinaCSVLoaderTest >> setUp [
+	"Hooks that subclasses may override to define the fixture of test."
+
+	super setUp.
+	OvinaSheepLoader default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
+	OvinaSheep managersReset
 ]
 
 { #category : #tests }
-OvinaSheepManagerTest >> testAllRams [
+OvinaCSVLoaderTest >> testAllLambs [
+	| man |
+	OvinaLamb loadLambs.
+	man := OvinaLamb manager.
+	self assert: man size > 0 equals: true
+]
+
+{ #category : #tests }
+OvinaCSVLoaderTest >> testAllRams [
 	| man |
 	OvinaRam loadRams.
 	man := OvinaRam manager.
@@ -24,7 +33,7 @@ OvinaSheepManagerTest >> testAllRams [
 ]
 
 { #category : #tests }
-OvinaSheepManagerTest >> testBuster [
+OvinaCSVLoaderTest >> testBuster [
 	| buster |
 	OvinaRam loadRams.
 	buster := OvinaRam manager at: 3.
@@ -32,14 +41,14 @@ OvinaSheepManagerTest >> testBuster [
 ]
 
 { #category : #tests }
-OvinaSheepManagerTest >> testManagerNotNil [
+OvinaCSVLoaderTest >> testManagerNotNil [
 	| man |
 	man := OvinaSheep manager.
 	self deny: man equals: nil. 
 ]
 
 { #category : #tests }
-OvinaSheepManagerTest >> testManagerReset [
+OvinaCSVLoaderTest >> testManagerReset [
 	| man |
 	man := OvinaSheep manager.
 	man reset.
@@ -47,7 +56,7 @@ OvinaSheepManagerTest >> testManagerReset [
 ]
 
 { #category : #tests }
-OvinaSheepManagerTest >> testPingoLamb [
+OvinaCSVLoaderTest >> testPingoLamb [
 	| pingo |
 	OvinaLamb loadLambs.
 	pingo := OvinaLamb manager at: 7.

@@ -17,7 +17,7 @@ OvinaSheepLoaderTest >> testLambLoadNotNil [
 	| lambs |
 	lambs := OvinaSheepLoader default loadLambs.
 	self assert: lambs class equals: Array.
-	self assert: lambs size > 0 equals: true
+	self assert: lambs isEmpty equals: false
 ]
 
 { #category : #tests }

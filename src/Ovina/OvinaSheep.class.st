@@ -24,6 +24,13 @@ OvinaSheep class >> managerReset [
 	manager := nil.
 ]
 
+{ #category : #accessing }
+OvinaSheep class >> managersReset [
+	OvinaEwe managerReset.
+	OvinaLamb managerReset .
+	OvinaRam managerReset .
+]
+
 { #category : #acccessing }
 OvinaSheep >> chr [ 
 	self subclassResponsibility.

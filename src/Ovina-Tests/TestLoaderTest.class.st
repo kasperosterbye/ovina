@@ -4,20 +4,22 @@ Class {
 	#category : #'Ovina-Tests'
 }
 
+{ #category : #running }
+TestLoaderTest >> setUp [
+	"Hooks that subclasses may override to define the fixture of test."
+	super setUp.
+	OvinaSheepLoader default: TestOvinaSheepLoader new.
+	OvinaSheep managersReset
+]
+
 { #category : #tests }
 TestLoaderTest >> testOneEwe [
-	OvinaSheepLoader default: TestOvinaSheepLoader new.
-	OvinaEwe managerReset.
 	OvinaEwe loadEwes.
-	self 
-		assert: (OvinaEwe manager at: 1000) name 
-		equals: 'Bolche'.
+	self assert: (OvinaEwe manager at: 1000) name equals: 'Bolche'
 ]
 
 { #category : #tests }
 TestLoaderTest >> testOneLamb [
-	OvinaSheepLoader default: TestOvinaSheepLoader new.
-	OvinaLamb managerReset.
 	OvinaLamb loadLambs.
 	self 
 		assert: (OvinaLamb manager at: 100) sex 
@@ -26,10 +28,6 @@ TestLoaderTest >> testOneLamb [
 
 { #category : #tests }
 TestLoaderTest >> testTwoRams [
-	OvinaSheepLoader default: TestOvinaSheepLoader new.
-	OvinaRam managerReset.
 	OvinaRam loadRams.
-	self 
-		assert: (OvinaRam manager at: 10) number 
-		equals: 10.
+	self assert: (OvinaRam manager at: 10) number equals: 10
 ]
