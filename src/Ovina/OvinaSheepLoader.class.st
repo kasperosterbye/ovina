@@ -33,6 +33,12 @@ OvinaSheepLoader class >> default: newDefault [
 ]
 
 { #category : #loading }
+OvinaSheepLoader >> loadEwes [
+	"return a collection of Eves"
+	self subclassResponsibility 
+]
+
+{ #category : #loading }
 OvinaSheepLoader >> loadLambs [
 	"return a collection of Lambs"
 	self subclassResponsibility 

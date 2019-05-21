@@ -33,10 +33,23 @@ OvinaCSVLoader >> lambFile [
 		asFileReference readStream.
 ]
 
-{ #category : #loading }
-OvinaCSVLoader >> loadEwes [
-	"return a collection of Eves"
-	self subclassResponsibility 
+{ #category : #'instance manager' }
+OvinaCSVLoader >> loadEwes [ 
+	| neoReader |
+	neoReader := NeoCSVReader on: self eweFile.
+	"eweID name chr number inDate race outDate"
+	neoReader
+		separator: $;;
+		recordClass: OvinaEwe;
+		addIntegerField: #eweID:;
+		addField: #name:;
+		addIntegerField: #chr:;
+		addIntegerField: #number:;
+		addField: #inDate: converter: [ :s | Date fromString: s ];
+		addField: #race:;
+		addField: #outDate: converter: [ :s | Date fromString: s ];
+		skipHeader.
+	^ neoReader upToEnd
 ]
 
 { #category : #'instance manager' }
