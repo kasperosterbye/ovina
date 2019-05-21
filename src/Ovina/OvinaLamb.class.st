@@ -67,6 +67,14 @@ OvinaLamb class >> fileContents [
 	^'/Users/kasper/_Projects/Pharo/ovina_csv/lambs.csv' asFileReference readStream
 ]
 
+{ #category : #'instance manager' }
+OvinaLamb class >> loadLambs [
+	| man |
+	man := self manager.
+	OvinaSheepLoader default loadLambs 
+		do: [ :lamb | man add: lamb at: lamb lambID ].
+]
+
 { #category : #accessing }
 OvinaLamb >> chr [
 	^ self shouldBeImplemented

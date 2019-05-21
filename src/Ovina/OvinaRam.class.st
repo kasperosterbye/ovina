@@ -31,6 +31,14 @@ Class {
 	#category : #'Ovina-Model'
 }
 
+{ #category : #'instance creation' }
+OvinaRam class >> loadRams [
+	| man |
+	man := self manager.
+	OvinaSheepLoader default loadRams 
+		do: [ :ram | man add: ram at: ram ramId ].
+]
+
 { #category : #accessing }
 OvinaRam >> chr [
 	<column: 'CHR'>
