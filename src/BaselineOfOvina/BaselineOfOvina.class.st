@@ -4,13 +4,13 @@ I represent the Ovina baseline.
 
 "
 Class {
-	#name : #OvinaBaseline,
+	#name : #BaselineOfOvina,
 	#superclass : #BaselineOf,
-	#category : #Ovina
+	#category : #BaselineOfOvina
 }
 
 { #category : #'class initialization' }
-OvinaBaseline class >> initialize [
+BaselineOfOvina class >> initialize [
 	"I represent the baseline for Ovina.
 	I am not sure I need this stuff.
 	I depend on NeoCSV.
@@ -24,7 +24,7 @@ OvinaBaseline class >> initialize [
 ]
 
 { #category : #baselines }
-OvinaBaseline >> baseline: spec [
+BaselineOfOvina >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
@@ -38,7 +38,7 @@ OvinaBaseline >> baseline: spec [
 ]
 
 { #category : #baselines }
-OvinaBaseline >> neoCSVDependency: spec [
+BaselineOfOvina >> neoCSVDependency: spec [
 "Gofer it
    smalltalkhubUser: 'SvenVanCaekenberghe' project: 'Neo';
    configurationOf: 'NeoCSV';
@@ -53,6 +53,6 @@ OvinaBaseline >> neoCSVDependency: spec [
 ]
 
 { #category : #accessing }
-OvinaBaseline >> projectClass [
+BaselineOfOvina >> projectClass [
 	^ MetacelloCypressBaselineProject
 ]
