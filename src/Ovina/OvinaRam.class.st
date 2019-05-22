@@ -39,6 +39,20 @@ OvinaRam class >> loadRams [
 		do: [ :ram | man add: ram at: ram ramId ].
 ]
 
+{ #category : #'instance creation' }
+OvinaRam class >> noRam [
+	| noRam |
+	noRam := self new.
+	noRam
+		ramId: 'ID';
+		name: 'Navn';
+		chr: 'CHR';
+		number: 'Nummer';
+		inDate: 'Ind dato';
+		race: 'Race'.
+	^ noRam
+]
+
 { #category : #accessing }
 OvinaRam >> chr [
 	<column: 'CHR'>

@@ -46,6 +46,26 @@ OvinaLamb class >> loadLambs [
 		do: [ :lamb | man add: lamb at: lamb lambID ].
 ]
 
+{ #category : #'instance manager' }
+OvinaLamb class >> noLamb [
+	"Dummy field values for initial presentation of lamb"
+
+	| noLamb |
+	noLamb := self new.
+	noLamb
+		number: 'Nummer';
+		momFK: 'Mor';
+		dadFK: 'Far';
+		inDate: 'Født';
+		event: 'Fødsel';
+		sex: 'Køn';
+		growth: '---';
+		usage: 'Anvendelse';
+		color: 'Farve';
+		comment: 'Kommentar'.
+	^ noLamb
+]
+
 { #category : #accessing }
 OvinaLamb >> chr [
 	^112633
