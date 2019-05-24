@@ -158,17 +158,17 @@ OvinaLambPresenter >> initializeWidgets [
 	sexPresenter := self instantiate: OvinaLabeledInputField.
 	usagePresenter := self instantiate: OvinaLabeledInputField.
 	colorPresenter := self instantiate: OvinaLabeledInputField.
-	commentPresenter := self instantiate: OvinaLabeledInputField.
+	commentPresenter := self instantiate: OvinaCommentField.
 	"configuration"
 	lamb := OvinaLamb noLamb.
-	numberPresenter  label: 'Nummer' text: lamb number.
-	momFKPresenter  label: 'Mor nummer' text: lamb momFK.
-	dadFKPresenter  label: 'Far nummer' text: lamb dadFK .
-	inDatePresenter  label: 'Ind dato' text: lamb inDate .
-	eventPresenter  label: 'Fødsel' text: lamb event .
-	sexPresenter  label: 'Køn' text: lamb sex .
-	usagePresenter  label: 'Anvendelse' text: lamb usage .
-	colorPresenter  label: 'Farve' text: lamb color .
+	numberPresenter label: 'Nummer' text: lamb number.
+	momFKPresenter label: 'Mor nummer' text: lamb momFK.
+	dadFKPresenter label: 'Far nummer' text: lamb dadFK.
+	inDatePresenter label: 'Ind dato' text: lamb inDate.
+	eventPresenter label: 'Fødsel' text: lamb event.
+	sexPresenter label: 'Køn' text: lamb sex.
+	usagePresenter label: 'Anvendelse' text: lamb usage.
+	colorPresenter label: 'Farve' text: lamb color.
 	commentPresenter label: 'Kommentar' text: lamb comment
 ]
 
