@@ -68,11 +68,14 @@ OvinaLamb class >> noLamb [
 
 { #category : #accessing }
 OvinaLamb >> chr [
-	^112633
+	<column: 'CHR'>
+
+	^ 112633
 ]
 
 { #category : #accessing }
 OvinaLamb >> color [
+	<column: 'Farve'>
 	^ color
 ]
 
@@ -103,6 +106,7 @@ OvinaLamb >> dadFK: anObject [
 
 { #category : #accessing }
 OvinaLamb >> event [
+	<column: 'Fødsel'>
 	^ event
 ]
 
@@ -123,6 +127,7 @@ OvinaLamb >> growth: anObject [
 
 { #category : #accessing }
 OvinaLamb >> inDate [
+	<column: 'Født'>
 	^ inDate
 ]
 
@@ -153,6 +158,7 @@ OvinaLamb >> momFK: anObject [
 
 { #category : #accessing }
 OvinaLamb >> number [
+	<column: 'Nummer'>
 	^ number
 ]
 
@@ -173,6 +179,7 @@ OvinaLamb >> printOn: aStream [
 
 { #category : #accessing }
 OvinaLamb >> sex [
+	<column: 'Køn'>
 	^ sex
 ]
 
@@ -183,6 +190,7 @@ OvinaLamb >> sex: anObject [
 
 { #category : #accessing }
 OvinaLamb >> usage [
+	<column: 'Brug'>
 	^ usage
 ]
 

@@ -1,3 +1,6 @@
+"
+I represent an ewe
+"
 Class {
 	#name : #OvinaEwe,
 	#superclass : #OvinaSheep,
@@ -22,8 +25,24 @@ OvinaEwe class >> loadEwes [
 		do: [ :ewe | man add: ewe at: ewe eweID ].
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaEwe class >> noEwe [
+	| noEwe |
+	noEwe := self new.
+	noEwe
+		eweID: 'ID';
+		name: 'Navn';
+		chr: 'CHR';
+		number: 'Nummer';
+		inDate: 'Ind dato';
+		race: 'Race';
+		outDate: 'Ud dato'.
+	^ noEwe
+]
+
 { #category : #accessing }
 OvinaEwe >> chr [
+	<column: 'CHR'>
 	^ chr
 ]
 
@@ -34,6 +53,7 @@ OvinaEwe >> chr: anInteger [
 
 { #category : #accessing }
 OvinaEwe >> eweID [
+	<column: 'ID'>
 	^ eweID
 ]
 
@@ -44,6 +64,7 @@ OvinaEwe >> eweID: anObject [
 
 { #category : #accessing }
 OvinaEwe >> inDate [
+	<column: 'Ind dato'>
 	^ inDate
 ]
 
@@ -54,6 +75,7 @@ OvinaEwe >> inDate: anObject [
 
 { #category : #accessing }
 OvinaEwe >> name [
+	<column: 'Navn'>
 	^ name
 ]
 
@@ -64,6 +86,7 @@ OvinaEwe >> name: anObject [
 
 { #category : #accessing }
 OvinaEwe >> number [
+	<column: 'Nummer'>
 	^ number
 ]
 
@@ -74,6 +97,7 @@ OvinaEwe >> number: anObject [
 
 { #category : #accessing }
 OvinaEwe >> outDate [
+	<column: 'Ud dato'>
 	^ outDate
 ]
 
