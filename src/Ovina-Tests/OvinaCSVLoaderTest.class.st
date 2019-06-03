@@ -12,7 +12,7 @@ OvinaCSVLoaderTest >> setUp [
 	"Hooks that subclasses may override to define the fixture of test."
 
 	super setUp.
-	OvinaSheepLoader default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
+	OvinaEntityLoader default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
 	OvinaSheep managersReset
 ]
 

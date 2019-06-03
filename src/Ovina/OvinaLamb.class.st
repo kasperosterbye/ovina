@@ -42,7 +42,7 @@ OvinaLamb class >> loadLambs [
 	"I put the loaded lambs in the lamb manager"
 	| man |
 	man := self manager.
-	OvinaSheepLoader default loadLambs 
+	OvinaEntityLoader default loadLambs 
 		do: [ :lamb | man add: lamb at: lamb lambID ].
 ]
 

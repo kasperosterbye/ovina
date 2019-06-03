@@ -35,7 +35,7 @@ Class {
 OvinaRam class >> loadRams [
 	| man |
 	man := self manager.
-	OvinaSheepLoader default loadRams 
+	OvinaEntityLoader default loadRams 
 		do: [ :ram | man add: ram at: ram ramId ].
 ]
 

@@ -15,7 +15,7 @@ Class {
 { #category : #accessing }
 OvinaSheep class >> manager [
 	manager isNil
-		ifTrue: [ manager := OvinaSheepManager new ].
+		ifTrue: [ manager := OvinaEntityManager new ].
 	^manager
 ]
 

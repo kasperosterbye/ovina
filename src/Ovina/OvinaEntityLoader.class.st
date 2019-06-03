@@ -1,14 +1,16 @@
 "
-I am an abstract class to load sheeps into Ovina.
+I am an abstract class to load entities into Ovina.
 
-I implement three methods: 
+I require these abstract methods: 
 
 loadRams
 loadLambs
 loadEves
+loadEventDescription
+loadEvent
 "
 Class {
-	#name : #OvinaSheepLoader,
+	#name : #OvinaEntityLoader,
 	#superclass : #Object,
 	#classInstVars : [
 		'defaultLoader'
@@ -17,7 +19,7 @@ Class {
 }
 
 { #category : #accessing }
-OvinaSheepLoader class >> default [
+OvinaEntityLoader class >> default [
 	"return a default loader"
 
 	defaultLoader isNil
@@ -26,26 +28,40 @@ OvinaSheepLoader class >> default [
 ]
 
 { #category : #accessing }
-OvinaSheepLoader class >> default: newDefault [
+OvinaEntityLoader class >> default: newDefault [
 	"set a default loader"
 
 	defaultLoader := newDefault .
 ]
 
 { #category : #loading }
-OvinaSheepLoader >> loadEwes [
+OvinaEntityLoader >> loadEventDescriptions [
+	"return a collection of EventDescriptions"
+
+	self subclassResponsibility
+]
+
+{ #category : #loading }
+OvinaEntityLoader >> loadEvents [
+	"return a collection of Events"
+
+	self subclassResponsibility
+]
+
+{ #category : #loading }
+OvinaEntityLoader >> loadEwes [
 	"return a collection of Eves"
 	self subclassResponsibility 
 ]
 
 { #category : #loading }
-OvinaSheepLoader >> loadLambs [
+OvinaEntityLoader >> loadLambs [
 	"return a collection of Lambs"
 	self subclassResponsibility 
 ]
 
 { #category : #loading }
-OvinaSheepLoader >> loadRams [
+OvinaEntityLoader >> loadRams [
 	"return a collection of Rams"
 	self subclassResponsibility 
 ]

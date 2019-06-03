@@ -21,7 +21,7 @@ OvinaEwe class >> loadEwes [
 	"I put the loaded ewes in the ewe manager"
 	| man |
 	man := self manager.
-	OvinaSheepLoader default loadEwes  
+	OvinaEntityLoader default loadEwes  
 		do: [ :ewe | man add: ewe at: ewe eweID ].
 ]
 

@@ -1,11 +1,14 @@
+"
+I am a mock loader 
+"
 Class {
-	#name : #TestOvinaSheepLoader,
-	#superclass : #OvinaSheepLoader,
+	#name : #MockOvinaEntityLoader,
+	#superclass : #OvinaEntityLoader,
 	#category : #'Ovina-Tests'
 }
 
 { #category : #loading }
-TestOvinaSheepLoader >> loadEwes [
+MockOvinaEntityLoader >> loadEwes [
 	"return a collection of Eves"
 	"eweID;name;chr;number;inDate;race;outDate"
 	^{
@@ -22,7 +25,7 @@ TestOvinaSheepLoader >> loadEwes [
 ]
 
 { #category : #loading }
-TestOvinaSheepLoader >> loadLambs [
+MockOvinaEntityLoader >> loadLambs [
 	"return a collection of Lambs"
 	^ { 
 		OvinaLamb new
@@ -43,7 +46,7 @@ TestOvinaSheepLoader >> loadLambs [
 ]
 
 { #category : #loading }
-TestOvinaSheepLoader >> loadRams [
+MockOvinaEntityLoader >> loadRams [
 	"return a collection of Rams"
 	"ramId name chr number inDate race"
 	^ { 

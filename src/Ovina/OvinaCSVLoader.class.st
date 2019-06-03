@@ -13,7 +13,7 @@ They are files stored in the *path* instance variable
 "
 Class {
 	#name : #OvinaCSVLoader,
-	#superclass : #OvinaSheepLoader,
+	#superclass : #OvinaEntityLoader,
 	#instVars : [
 		'path'
 	],
@@ -26,6 +26,11 @@ OvinaCSVLoader class >> on: aPath [
 	^self new
 		path: aPath;
 		yourself
+]
+
+{ #category : #files }
+OvinaCSVLoader >> eventDescriptorFile [
+	^ (path , 'descriptors.csv') asFileReference readStream
 ]
 
 { #category : #files }
@@ -43,6 +48,23 @@ OvinaCSVLoader >> initialize [
 OvinaCSVLoader >> lambFile [
 	^ (path , 'lambs.csv')  
 		asFileReference readStream.
+]
+
+{ #category : #loading }
+OvinaCSVLoader >> loadEventDescriptions [
+	| neoReader |
+	neoReader := NeoCSVReader on: self eventDescriptorFile.
+	"descID descTag descDate descComment descSeason"
+	neoReader
+		separator: $;;
+		recordClass: OvinaEventDescription ;
+		addIntegerField: #descID:;
+		addField: #descTag:;
+		addField: #descDate: converter: [ :s | Date fromString: s ];
+		addField: #descComment:;
+		addIntegerField: #descSeason:;
+		skipHeader.
+	^ neoReader upToEnd
 ]
 
 { #category : #loading }
