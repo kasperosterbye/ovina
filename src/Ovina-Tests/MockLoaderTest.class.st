@@ -14,20 +14,15 @@ MockLoaderTest >> setUp [
 
 { #category : #tests }
 MockLoaderTest >> testOneEwe [
-	OvinaEwe loadEwes.
 	self assert: (OvinaEwe manager at: 1000) name equals: 'Bolche'
 ]
 
 { #category : #tests }
 MockLoaderTest >> testOneLamb [
-	OvinaLamb loadLambs.
-	self 
-		assert: (OvinaLamb manager at: 100) sex 
-		equals: 'gimmer'.
+	self assert: (OvinaLamb manager at: 100) sex equals: 'gimmer'
 ]
 
 { #category : #tests }
 MockLoaderTest >> testTwoRams [
-	OvinaRam loadRams.
 	self assert: (OvinaRam manager at: 10) number equals: 10
 ]

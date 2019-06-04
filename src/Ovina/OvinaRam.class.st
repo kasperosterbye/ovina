@@ -21,22 +21,19 @@ Class {
 	#name : #OvinaRam,
 	#superclass : #OvinaSheep,
 	#instVars : [
-		'ramId',
 		'name',
 		'chr',
 		'number',
 		'inDate',
-		'race'
+		'race',
+		'id'
 	],
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'instance creation' }
-OvinaRam class >> loadRams [
-	| man |
-	man := self manager.
-	OvinaEntityLoader default loadRams
-		do: [ :ram | man at: ram ramId put: ram ]
+{ #category : #accessing }
+OvinaRam class >> loadSelector [
+	^ #loadRams
 ]
 
 { #category : #'instance creation' }
@@ -62,6 +59,16 @@ OvinaRam >> chr [
 { #category : #accessing }
 OvinaRam >> chr: anObject [
 	chr := anObject
+]
+
+{ #category : #accessing }
+OvinaRam >> id [
+	^ id
+]
+
+{ #category : #accessing }
+OvinaRam >> id: anObject [
+	id := anObject
 ]
 
 { #category : #accessing }
@@ -116,7 +123,7 @@ OvinaRam >> printOn: aStream [
 	aStream nextPutAll: '{ '.
 	aStream
 		nextPutAll: ' ramId: ';
-		print: ramId.
+		print: id.
 	aStream
 		nextPutAll: ' name: ';
 		print: name.
@@ -145,14 +152,4 @@ OvinaRam >> race: anObject [
 OvinaRam >> raceNavn [
 	<column: 'Navn(race)'>
 	^ name , '(',(race select: [ :char | char isUppercase ]),')'.
-]
-
-{ #category : #accessing }
-OvinaRam >> ramId [
-	^ ramId
-]
-
-{ #category : #accessing }
-OvinaRam >> ramId: anObject [
-	ramId := anObject
 ]

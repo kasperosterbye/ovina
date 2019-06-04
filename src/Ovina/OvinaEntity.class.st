@@ -7,11 +7,16 @@ Class {
 	#category : #'Ovina-Model'
 }
 
+{ #category : #accessing }
+OvinaEntity class >> loadSelector [ 
+	self subclassResponsibility 
+]
+
 { #category : #public }
 OvinaEntity class >> manager [
 	manager isNil
-		ifTrue: [ manager := OvinaEntityManager new ].
-	^manager
+		ifTrue: [ manager := OvinaEntityManager with: self loadSelector ].
+	^ manager
 ]
 
 { #category : #public }

@@ -2,23 +2,18 @@ Class {
 	#name : #OvinaEventDescription,
 	#superclass : #OvinaEntity,
 	#instVars : [
-		'descID',
 		'descTag',
 		'descDate',
 		'descComment',
-		'descSeason'
+		'descSeason',
+		'id'
 	],
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'instance manager' }
-OvinaEventDescription class >> loadEventDescriptions [
-	"I put the loaded eventDescriptions in the eventDescription manager"
-
-	| man |
-	man := self manager.
-	OvinaEntityLoader default loadEventDescriptions
-		do: [ :eventDescription | man at: eventDescription descID  put: eventDescription ]
+{ #category : #accessing }
+OvinaEventDescription class >> loadSelector [
+	^ #loadEventDescriptions
 ]
 
 { #category : #'instance manager' }
@@ -56,16 +51,6 @@ OvinaEventDescription >> descDate: anObject [
 ]
 
 { #category : #accessing }
-OvinaEventDescription >> descID [
-	^ descID
-]
-
-{ #category : #accessing }
-OvinaEventDescription >> descID: anObject [
-	descID := anObject
-]
-
-{ #category : #accessing }
 OvinaEventDescription >> descSeason [
 	^ descSeason
 ]
@@ -83,4 +68,14 @@ OvinaEventDescription >> descTag [
 { #category : #accessing }
 OvinaEventDescription >> descTag: anObject [
 	descTag := anObject
+]
+
+{ #category : #accessing }
+OvinaEventDescription >> id [
+	^ id
+]
+
+{ #category : #accessing }
+OvinaEventDescription >> id: anObject [
+	id := anObject
 ]

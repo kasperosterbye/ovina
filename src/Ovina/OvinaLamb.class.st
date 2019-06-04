@@ -22,7 +22,6 @@ Class {
 	#name : #OvinaLamb,
 	#superclass : #OvinaSheep,
 	#instVars : [
-		'lambID',
 		'number',
 		'momFK',
 		'dadFK',
@@ -32,19 +31,15 @@ Class {
 		'growth',
 		'usage',
 		'color',
-		'comment'
+		'comment',
+		'id'
 	],
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'instance manager' }
-OvinaLamb class >> loadLambs [
-	"I put the loaded lambs in the lamb manager"
-
-	| man |
-	man := self manager.
-	OvinaEntityLoader default loadLambs
-		do: [ :lamb | man at: lamb lambID put: lamb ]
+{ #category : #accessing }
+OvinaLamb class >> loadSelector [
+	^ #loadLambs
 ]
 
 { #category : #'instance manager' }
@@ -127,6 +122,16 @@ OvinaLamb >> growth: anObject [
 ]
 
 { #category : #accessing }
+OvinaLamb >> id [
+	^ id
+]
+
+{ #category : #accessing }
+OvinaLamb >> id: anObject [
+	id := anObject
+]
+
+{ #category : #accessing }
 OvinaLamb >> inDate [
 	<column: 'Født'>
 	^ inDate
@@ -135,16 +140,6 @@ OvinaLamb >> inDate [
 { #category : #accessing }
 OvinaLamb >> inDate: anObject [
 	inDate := anObject
-]
-
-{ #category : #accessing }
-OvinaLamb >> lambID [
-	^ lambID
-]
-
-{ #category : #accessing }
-OvinaLamb >> lambID: anObject [
-	lambID := anObject
 ]
 
 { #category : #accessing }

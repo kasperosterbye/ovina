@@ -22,7 +22,7 @@ OvinaEntityLoaderTest >> testDefault [
 OvinaEntityLoaderTest >> testLambLoadNotNil [
 	| lambs |
 	lambs := OvinaEntityLoader default loadLambs.
-	self assert: lambs class equals: Array.
+	self assert: lambs class equals: Dictionary.
 	self assert: lambs isEmpty equals: false
 ]
 
@@ -30,6 +30,6 @@ OvinaEntityLoaderTest >> testLambLoadNotNil [
 OvinaEntityLoaderTest >> testRamLoad [
 	| rams |
 	rams := OvinaEntityLoader default loadRams.
-	self assert: rams class equals: Array.
+	self assert: rams class equals: Dictionary.
 	self assert: rams size equals: 7.
 ]

@@ -12,22 +12,21 @@ OvinaCSVLoaderTest >> setUp [
 	"Hooks that subclasses may override to define the fixture of test."
 
 	super setUp.
-	OvinaEntityLoader default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
-	OvinaSheep managersReset
+	OvinaEntityLoader
+		default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
+	OvinaEntity managersReset
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testBuster [
 	| buster |
-	OvinaRam loadRams.
 	buster := OvinaRam manager at: 3.
-	self assert: buster name equals: 'Buster'.
+	self assert: buster name equals: 'Buster'
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEventDescriptions [
 	| man |
-	OvinaEventDescription loadEventDescriptions.
 	man := OvinaEventDescription manager.
 	self assert: man size equals: 72
 ]
@@ -35,7 +34,6 @@ OvinaCSVLoaderTest >> testLoadEventDescriptions [
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEvents [
 	| man |
-	OvinaEvent loadEvents.
 	man := OvinaEvent manager.
 	self assert: man size equals: 1305
 ]
@@ -43,15 +41,13 @@ OvinaCSVLoaderTest >> testLoadEvents [
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEwes [
 	| man |
-	OvinaEwe loadEwes.
 	man := OvinaEwe manager.
-	self assert: man size equals: 62.
+	self assert: man size equals: 62
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadLambs [
 	| man |
-	OvinaLamb loadLambs.
 	man := OvinaLamb manager.
 	self assert: man size > 0 equals: true
 ]
@@ -59,7 +55,6 @@ OvinaCSVLoaderTest >> testLoadLambs [
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadRams [
 	| man |
-	OvinaRam loadRams.
 	man := OvinaRam manager.
 	self assert: man size equals: 7
 ]
@@ -82,7 +77,6 @@ OvinaCSVLoaderTest >> testManagerReset [
 { #category : #tests }
 OvinaCSVLoaderTest >> testPingoLamb [
 	| pingo |
-	OvinaLamb loadLambs.
 	pingo := OvinaLamb manager at: 7.
-	self assert: pingo comment equals: 'Pingo - Kasper tester'.
+	self assert: pingo comment equals: 'Pingo - Kasper tester'
 ]

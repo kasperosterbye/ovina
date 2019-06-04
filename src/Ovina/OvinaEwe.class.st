@@ -5,25 +5,20 @@ Class {
 	#name : #OvinaEwe,
 	#superclass : #OvinaSheep,
 	#instVars : [
-		'eweID',
 		'name',
 		'chr',
 		'number',
 		'inDate',
 		'race',
-		'outDate'
+		'outDate',
+		'id'
 	],
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'instance manager' }
-OvinaEwe class >> loadEwes [
-	"I put the loaded ewes in the ewe manager"
-
-	| man |
-	man := self manager.
-	OvinaEntityLoader default loadEwes
-		do: [ :ewe | man at: ewe eweID put: ewe  ]
+{ #category : #accessing }
+OvinaEwe class >> loadSelector [
+	^ #loadEwes
 ]
 
 { #category : #'instance manager' }
@@ -53,14 +48,13 @@ OvinaEwe >> chr: anInteger [
 ]
 
 { #category : #accessing }
-OvinaEwe >> eweID [
-	<column: 'ID'>
-	^ eweID
+OvinaEwe >> id [
+	^ id
 ]
 
 { #category : #accessing }
-OvinaEwe >> eweID: anObject [
-	eweID := anObject
+OvinaEwe >> id: anObject [
+	id := anObject
 ]
 
 { #category : #accessing }

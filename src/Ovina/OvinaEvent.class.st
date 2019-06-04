@@ -2,25 +2,19 @@ Class {
 	#name : #OvinaEvent,
 	#superclass : #OvinaEntity,
 	#instVars : [
-		'eventID',
 		'descFK',
 		'sheepFK',
 		'sheepKind',
 		'eventDate',
-		'value'
+		'value',
+		'id'
 	],
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'instance manager' }
-OvinaEvent class >> loadEvents [
-	"I put the loaded Events in the Event manager"
-
-	| man |
-	man := self manager.
-	OvinaEntityLoader default loadEvents
-		do:
-			[ :event | man at: event eventID put: event ]
+{ #category : #accessing }
+OvinaEvent class >> loadSelector [
+	^ #loadEvents
 ]
 
 { #category : #'instance manager' }
@@ -60,13 +54,13 @@ OvinaEvent >> eventDate: anObject [
 ]
 
 { #category : #accessing }
-OvinaEvent >> eventID [
-	^ eventID
+OvinaEvent >> id [
+	^ id
 ]
 
 { #category : #accessing }
-OvinaEvent >> eventID: anObject [
-	eventID := anObject
+OvinaEvent >> id: anObject [
+	id := anObject
 ]
 
 { #category : #accessing }

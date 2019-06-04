@@ -11,43 +11,96 @@ Class {
 	#name : #OvinaEntityManager,
 	#superclass : #Object,
 	#instVars : [
-		'loader',
-		'entities'
+		'entities',
+		'loadSelector'
 	],
 	#category : #'Ovina-ModelManager'
 }
 
-{ #category : #accessing }
-OvinaEntityManager >> all [ 
-	^entities values
+{ #category : #'instance creation' }
+OvinaEntityManager class >> with: loadSelector [
+	^self new loadSelector: loadSelector; yourself
 ]
 
-{ #category : #enumerating }
+{ #category : #public }
+OvinaEntityManager >> all [
+	^ self entities values
+]
+
+{ #category : #private }
 OvinaEntityManager >> allDo: aBlock [
 	entities valuesDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntityManager >> at: id [
-	^entities at: id
+	
+	^ self entities at: id
 ]
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntityManager >> at: key put: sheep [
-	entities at: key put: sheep
+	self entities at: key put: sheep
 ]
 
-{ #category : #initialization }
+{ #category : #private }
+OvinaEntityManager >> entities [
+		entities isEmpty
+		ifTrue: [ self loadEntities ].
+		^entities
+]
+
+{ #category : #private }
 OvinaEntityManager >> initialize [
 	entities := Dictionary new.
 ]
 
-{ #category : #accessing }
+{ #category : #private }
+OvinaEntityManager >> loadEntities [ 
+	self perform: loadSelector 
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadEventDescriptions [
+	entities := OvinaEntityLoader default loadEventDescriptions
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadEvents [
+	entities := OvinaEntityLoader default loadEvents
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadEwes [
+	entities := OvinaEntityLoader default loadEwes
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadLambs [
+	entities := OvinaEntityLoader default loadLambs
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadRams [
+	entities := OvinaEntityLoader default loadRams
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadSelector [
+	^ loadSelector
+]
+
+{ #category : #private }
+OvinaEntityManager >> loadSelector: anObject [
+	loadSelector := anObject
+]
+
+{ #category : #public }
 OvinaEntityManager >> reset [
 	entities := Dictionary new.
 ]
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntityManager >> size [
-	^entities size
+	^ self entities size
 ]

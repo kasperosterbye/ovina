@@ -62,14 +62,14 @@ OvinaCSVLoader >> loadEventDescriptions [
 	"descID descTag descDate descComment descSeason"
 	neoReader
 		separator: $;;
-		recordClass: OvinaEventDescription ;
-		addIntegerField: #descID:;
+		recordClass: OvinaEventDescription;
+		addIntegerField: #id:;
 		addField: #descTag:;
 		addField: #descDate: converter: [ :s | Date fromString: s ];
 		addField: #descComment:;
 		addIntegerField: #descSeason:;
 		skipHeader.
-	^ neoReader upToEnd
+	^ self newDictionaryOn: neoReader
 ]
 
 { #category : #loading }
@@ -80,25 +80,25 @@ OvinaCSVLoader >> loadEvents [
 	neoReader
 		separator: $;;
 		recordClass: OvinaEvent;
-		addIntegerField: #eventID:;
+		addIntegerField: #id:;
 		addIntegerField: #descFK:;
 		addIntegerField: #sheepFK:;
 		addField: #sheepKind:;
 		addField: #eventDate: converter: [ :s | Date fromString: s ];
 		addField: #value:;
 		skipHeader.
-	^ neoReader upToEnd
+	^ self newDictionaryOn: neoReader
 ]
 
 { #category : #loading }
-OvinaCSVLoader >> loadEwes [ 
+OvinaCSVLoader >> loadEwes [
 	| neoReader |
 	neoReader := NeoCSVReader on: self eweFile.
 	"eweID name chr number inDate race outDate"
 	neoReader
 		separator: $;;
 		recordClass: OvinaEwe;
-		addIntegerField: #eweID:;
+		addIntegerField: #id:;
 		addField: #name:;
 		addIntegerField: #chr:;
 		addIntegerField: #number:;
@@ -106,7 +106,7 @@ OvinaCSVLoader >> loadEwes [
 		addField: #race:;
 		addField: #outDate: converter: [ :s | Date fromString: s ];
 		skipHeader.
-	^ neoReader upToEnd
+	^ self newDictionaryOn: neoReader
 ]
 
 { #category : #loading }
@@ -116,8 +116,8 @@ OvinaCSVLoader >> loadLambs [
 	"lambID number momFK dadFK inDate event sex growth usage color comment"
 	neoReader
 		separator: $;;
-		recordClass: OvinaLamb ;
-		addIntegerField: #lambID:;
+		recordClass: OvinaLamb;
+		addIntegerField: #id:;
 		addIntegerField: #number:;
 		addIntegerField: #momFK:;
 		addIntegerField: #dadFK:;
@@ -129,7 +129,7 @@ OvinaCSVLoader >> loadLambs [
 		addField: #color:;
 		addField: #comment:;
 		skipHeader.
-	^ neoReader upToEnd
+	^ self newDictionaryOn: neoReader
 ]
 
 { #category : #loading }
@@ -140,14 +140,22 @@ OvinaCSVLoader >> loadRams [
 	neoReader
 		separator: $;;
 		recordClass: OvinaRam;
-		addIntegerField: #ramId:;
+		addIntegerField: #id:;
 		addField: #name:;
 		addIntegerField: #chr:;
 		addIntegerField: #number:;
 		addField: #inDate: converter: [ :s | Date fromString: s ];
 		addField: #race:;
 		skipHeader.
-	^ neoReader upToEnd
+	^ self newDictionaryOn: neoReader
+]
+
+{ #category : #private }
+OvinaCSVLoader >> newDictionaryOn: reader [
+	| dict |
+	dict := Dictionary new.
+	reader upToEnd do: [ :ent | dict at: ent id put: ent].
+	^ dict
 ]
 
 { #category : #initialization }
