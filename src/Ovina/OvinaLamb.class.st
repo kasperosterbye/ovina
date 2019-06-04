@@ -157,6 +157,11 @@ OvinaLamb >> momFK: anObject [
 	momFK := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaLamb >> mother [
+	^OvinaEwe manager at: (momFK)
+]
+
 { #category : #accessing }
 OvinaLamb >> number [
 	<column: 'Nummer'>

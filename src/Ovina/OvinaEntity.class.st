@@ -7,21 +7,20 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntity class >> manager [
 	manager isNil
 		ifTrue: [ manager := OvinaEntityManager new ].
 	^manager
 ]
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntity class >> managerReset [
 	manager := nil.
 ]
 
-{ #category : #accessing }
+{ #category : #public }
 OvinaEntity class >> managersReset [
-	OvinaEwe managerReset.
-	OvinaLamb managerReset .
-	OvinaRam managerReset .
+	(self allSubclasses select: [ :cl | cl subclasses isEmpty ])
+		do: [ :entityClass | entityClass managerReset  ]
 ]
