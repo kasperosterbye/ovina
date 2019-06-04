@@ -34,6 +34,11 @@ OvinaCSVLoader >> eventDescriptorFile [
 ]
 
 { #category : #files }
+OvinaCSVLoader >> eventFile [
+	^ (path , 'events.csv') asFileReference readStream
+]
+
+{ #category : #files }
 OvinaCSVLoader >> eweFile [
 	^ (path , 'ewes.csv') 
 		asFileReference readStream.
@@ -63,6 +68,24 @@ OvinaCSVLoader >> loadEventDescriptions [
 		addField: #descDate: converter: [ :s | Date fromString: s ];
 		addField: #descComment:;
 		addIntegerField: #descSeason:;
+		skipHeader.
+	^ neoReader upToEnd
+]
+
+{ #category : #loading }
+OvinaCSVLoader >> loadEvents [
+	| neoReader |
+	neoReader := NeoCSVReader on: self eventFile.
+	"eventID descFK sheepFK sheepKind eventDate value"
+	neoReader
+		separator: $;;
+		recordClass: OvinaEvent;
+		addIntegerField: #eventID:;
+		addIntegerField: #descFK:;
+		addIntegerField: #sheepFK:;
+		addField: #sheepKind:;
+		addField: #eventDate: converter: [ :s | Date fromString: s ];
+		addField: #value:;
 		skipHeader.
 	^ neoReader upToEnd
 ]

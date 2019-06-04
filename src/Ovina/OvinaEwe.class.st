@@ -16,16 +16,17 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance manager' }
 OvinaEwe class >> loadEwes [
 	"I put the loaded ewes in the ewe manager"
+
 	| man |
 	man := self manager.
-	OvinaEntityLoader default loadEwes  
-		do: [ :ewe | man add: ewe at: ewe eweID ].
+	OvinaEntityLoader default loadEwes
+		do: [ :ewe | man at: ewe eweID put: ewe  ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance manager' }
 OvinaEwe class >> noEwe [
 	| noEwe |
 	noEwe := self new.

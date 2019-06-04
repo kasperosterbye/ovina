@@ -12,42 +12,42 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'loader',
-		'sheeps'
+		'entities'
 	],
 	#category : #'Ovina-ModelManager'
 }
 
-{ #category : #adding }
-OvinaEntityManager >> add: sheep at: key [
-	sheeps at: key put: sheep
-]
-
 { #category : #accessing }
 OvinaEntityManager >> all [ 
-	^sheeps values
+	^entities values
 ]
 
 { #category : #enumerating }
 OvinaEntityManager >> allDo: aBlock [
-	sheeps valuesDo: aBlock
+	entities valuesDo: aBlock
 ]
 
 { #category : #accessing }
 OvinaEntityManager >> at: id [
-	^sheeps at: id
+	^entities at: id
+]
+
+{ #category : #accessing }
+OvinaEntityManager >> at: key put: sheep [
+	entities at: key put: sheep
 ]
 
 { #category : #initialization }
 OvinaEntityManager >> initialize [
-	sheeps := Dictionary new.
+	entities := Dictionary new.
 ]
 
-{ #category : #access }
+{ #category : #accessing }
 OvinaEntityManager >> reset [
-	sheeps := Dictionary new.
+	entities := Dictionary new.
 ]
 
 { #category : #accessing }
 OvinaEntityManager >> size [
-	^sheeps size
+	^entities size
 ]

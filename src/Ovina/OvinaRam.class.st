@@ -35,8 +35,8 @@ Class {
 OvinaRam class >> loadRams [
 	| man |
 	man := self manager.
-	OvinaEntityLoader default loadRams 
-		do: [ :ram | man add: ram at: ram ramId ].
+	OvinaEntityLoader default loadRams
+		do: [ :ram | man at: ram ramId put: ram ]
 ]
 
 { #category : #'instance creation' }

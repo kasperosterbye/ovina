@@ -7,6 +7,12 @@ Class {
 	#category : #'Ovina-Tests'
 }
 
+{ #category : #running }
+OvinaEntityLoaderTest >> setUp [
+	"Hooks that subclasses may override to define the fixture of test."
+	OvinaEntityLoader default: nil.	
+]
+
 { #category : #tests }
 OvinaEntityLoaderTest >> testDefault [
 	self assert: OvinaEntityLoader default class equals: OvinaCSVLoader

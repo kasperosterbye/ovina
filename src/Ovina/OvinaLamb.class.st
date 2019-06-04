@@ -40,10 +40,11 @@ Class {
 { #category : #'instance manager' }
 OvinaLamb class >> loadLambs [
 	"I put the loaded lambs in the lamb manager"
+
 	| man |
 	man := self manager.
-	OvinaEntityLoader default loadLambs 
-		do: [ :lamb | man add: lamb at: lamb lambID ].
+	OvinaEntityLoader default loadLambs
+		do: [ :lamb | man at: lamb lambID put: lamb ]
 ]
 
 { #category : #'instance manager' }

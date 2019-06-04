@@ -1,6 +1,6 @@
 Class {
 	#name : #OvinaEventDescription,
-	#superclass : #Object,
+	#superclass : #OvinaEntity,
 	#instVars : [
 		'descID',
 		'descTag',
@@ -10,6 +10,30 @@ Class {
 	],
 	#category : #'Ovina-Model'
 }
+
+{ #category : #'instance manager' }
+OvinaEventDescription class >> loadEventDescriptions [
+	"I put the loaded eventDescriptions in the eventDescription manager"
+
+	| man |
+	man := self manager.
+	OvinaEntityLoader default loadEventDescriptions
+		do: [ :eventDescription | man at: eventDescription descID  put: eventDescription ]
+]
+
+{ #category : #'instance manager' }
+OvinaEventDescription class >> noEventDescription [
+	"descID descTag descDate descComment descSeason"
+	| noEventDescription |
+	noEventDescription := self new.
+	noEventDescription
+		descID: 'ID';
+		descTag: 'Type';
+		descDate: 'Dato';
+		descComment: 'Kommentar';
+		descSeason: 'Sæson'.
+	^ noEventDescription
+]
 
 { #category : #accessing }
 OvinaEventDescription >> descComment [

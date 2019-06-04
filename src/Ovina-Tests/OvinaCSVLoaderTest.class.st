@@ -17,7 +17,39 @@ OvinaCSVLoaderTest >> setUp [
 ]
 
 { #category : #tests }
-OvinaCSVLoaderTest >> testAllLambs [
+OvinaCSVLoaderTest >> testBuster [
+	| buster |
+	OvinaRam loadRams.
+	buster := OvinaRam manager at: 3.
+	self assert: buster name equals: 'Buster'.
+]
+
+{ #category : #tests }
+OvinaCSVLoaderTest >> testLoadEventDescriptions [
+	| man |
+	OvinaEventDescription loadEventDescriptions.
+	man := OvinaEventDescription manager.
+	self assert: man size equals: 72
+]
+
+{ #category : #tests }
+OvinaCSVLoaderTest >> testLoadEvents [
+	| man |
+	OvinaEvent loadEvents.
+	man := OvinaEvent manager.
+	self assert: man size equals: 1305
+]
+
+{ #category : #tests }
+OvinaCSVLoaderTest >> testLoadEwes [
+	| man |
+	OvinaEwe loadEwes.
+	man := OvinaEwe manager.
+	self assert: man size equals: 62.
+]
+
+{ #category : #tests }
+OvinaCSVLoaderTest >> testLoadLambs [
 	| man |
 	OvinaLamb loadLambs.
 	man := OvinaLamb manager.
@@ -25,19 +57,11 @@ OvinaCSVLoaderTest >> testAllLambs [
 ]
 
 { #category : #tests }
-OvinaCSVLoaderTest >> testAllRams [
+OvinaCSVLoaderTest >> testLoadRams [
 	| man |
 	OvinaRam loadRams.
 	man := OvinaRam manager.
 	self assert: man size equals: 7
-]
-
-{ #category : #tests }
-OvinaCSVLoaderTest >> testBuster [
-	| buster |
-	OvinaRam loadRams.
-	buster := OvinaRam manager at: 3.
-	self assert: buster name equals: 'Buster'.
 ]
 
 { #category : #tests }
