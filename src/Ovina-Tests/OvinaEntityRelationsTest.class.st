@@ -37,20 +37,30 @@ OvinaEntityRelationsTest >> testDad [
 OvinaEntityRelationsTest >> testDescriptionToEvents [
 	"test that one can move from a description to its events"
 
-	self fail
+	| desc event |
+	desc := OvinaEventDescription manager at: 77.
+	event := desc events first.
+	self assert: event value equals: 'konge'
 ]
 
 { #category : #tests }
 OvinaEntityRelationsTest >> testEventSheep [
 	"test that one can move from event to the animal in question"
 
-	self fail
+	| event sheep |
+	event := OvinaEvent manager at: 777.
+	sheep := event sheep.
+	self assert: sheep name equals: 'Bolche'.
 ]
 
 { #category : #tests }
 OvinaEntityRelationsTest >> testEventToDescription [
 	"test that one can move from event to description"
-	self fail
+
+	| event desc |
+	event := OvinaEvent manager at: 777.
+	desc := event description.
+	self assert: desc descTag equals: 'flytning'.
 ]
 
 { #category : #tests }

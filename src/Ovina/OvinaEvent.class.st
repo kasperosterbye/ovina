@@ -43,6 +43,11 @@ OvinaEvent >> descFK: anObject [
 	descFK := anObject
 ]
 
+{ #category : #public }
+OvinaEvent >> description [
+	^ OvinaEventDescription manager at: descFK 
+]
+
 { #category : #accessing }
 OvinaEvent >> eventDate [
 	^ eventDate
@@ -61,6 +66,11 @@ OvinaEvent >> id [
 { #category : #accessing }
 OvinaEvent >> id: anObject [
 	id := anObject
+]
+
+{ #category : #public }
+OvinaEvent >> sheep [
+	^ sheepKind manager at: sheepFK 
 ]
 
 { #category : #accessing }
@@ -84,7 +94,7 @@ OvinaEvent >> sheepKind: anObject [
 ]
 
 { #category : #accessing }
-OvinaEvent >> value1 [
+OvinaEvent >> value [
 	^ value
 ]
 

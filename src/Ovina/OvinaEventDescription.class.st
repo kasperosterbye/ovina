@@ -70,6 +70,11 @@ OvinaEventDescription >> descTag: anObject [
 	descTag := anObject
 ]
 
+{ #category : #public }
+OvinaEventDescription >> events [
+	^ OvinaEvent manager all select: [ :ev | ev descFK = id ]
+]
+
 { #category : #accessing }
 OvinaEventDescription >> id [
 	^ id

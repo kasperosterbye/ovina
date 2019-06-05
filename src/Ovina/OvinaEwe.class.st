@@ -90,7 +90,7 @@ OvinaEwe >> number: anObject [
 	number := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #public }
 OvinaEwe >> offspring [
 	^ OvinaLamb manager all select: [ :lamb | lamb momFK = id]
 ]

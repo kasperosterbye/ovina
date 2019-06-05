@@ -90,7 +90,7 @@ OvinaLamb >> comment: anObject [
 	comment := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #public }
 OvinaLamb >> dad [
 	^ OvinaRam manager at: dadFK
 ]
@@ -157,7 +157,7 @@ OvinaLamb >> momFK: anObject [
 	momFK := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #public }
 OvinaLamb >> mother [
 	^OvinaEwe manager at: (momFK)
 ]

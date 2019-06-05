@@ -103,21 +103,9 @@ OvinaRam >> number: anObject [
 	number := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #public }
 OvinaRam >> offspring [
 	^OvinaLamb manager all select: [ :lamb | lamb dadFK = id ]
-]
-
-{ #category : #'ui building' }
-OvinaRam >> open [
-	| tree |
-	tree := TreePresenter new.
-	tree beCheckList.
-	tree multiSelection: true.
-	tree
-		columns: (self headers collect: [ :colName | self columnPresenterFor: colName ]).
-	tree roots: self class csvContents upToEnd.
-	tree openWithSpec
 ]
 
 { #category : #printing }
@@ -153,7 +141,7 @@ OvinaRam >> race: anObject [
 	race := anObject
 ]
 
-{ #category : #'accessing-computed' }
+{ #category : #public }
 OvinaRam >> raceNavn [
 	<column: 'Navn(race)'>
 	^ name , '(',(race select: [ :char | char isUppercase ]),')'.
