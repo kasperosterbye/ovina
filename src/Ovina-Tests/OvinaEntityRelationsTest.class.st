@@ -25,6 +25,13 @@ OvinaEntityRelationsTest >> setUp [
 	OvinaSheep managersReset
 ]
 
+{ #category : #running }
+OvinaEntityRelationsTest >> tearDown [
+	OvinaEntityLoader default: nil.
+	OvinaSheep managersReset.
+	super tearDown.
+]
+
 { #category : #tests }
 OvinaEntityRelationsTest >> testDad [
 	| lamb dad |
