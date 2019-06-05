@@ -103,6 +103,11 @@ OvinaRam >> number: anObject [
 	number := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaRam >> offspring [
+	^OvinaLamb manager all select: [ :lamb | lamb dadFK = id ]
+]
+
 { #category : #'ui building' }
 OvinaRam >> open [
 	| tree |

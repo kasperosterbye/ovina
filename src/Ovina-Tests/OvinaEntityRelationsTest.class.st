@@ -26,10 +26,53 @@ OvinaEntityRelationsTest >> setUp [
 ]
 
 { #category : #tests }
+OvinaEntityRelationsTest >> testDad [
+	| lamb dad |
+	lamb := OvinaLamb manager at: 100.
+	dad := lamb dad.
+	self assert: dad name equals: 'Ingolf' 
+]
+
+{ #category : #tests }
+OvinaEntityRelationsTest >> testDescriptionToEvents [
+	"test that one can move from a description to its events"
+
+	self fail
+]
+
+{ #category : #tests }
+OvinaEntityRelationsTest >> testEventSheep [
+	"test that one can move from event to the animal in question"
+
+	self fail
+]
+
+{ #category : #tests }
+OvinaEntityRelationsTest >> testEventToDescription [
+	"test that one can move from event to description"
+	self fail
+]
+
+{ #category : #tests }
+OvinaEntityRelationsTest >> testEweOffspring [
+	| ewe lamb |
+	ewe := OvinaEwe manager at: 1000.
+	lamb := ewe offspring first.
+	self assert: lamb number equals: 100.
+]
+
+{ #category : #tests }
 OvinaEntityRelationsTest >> testMom [
 	| lamb mom |
-	OvinaLamb loadLambs.
 	lamb := OvinaLamb manager at: 100.
 	mom := lamb mother.
 	self assert: mom name equals: 'Bolche'
+]
+
+{ #category : #tests }
+OvinaEntityRelationsTest >> testRamOffspring [
+	| ram lamb |
+	ram := OvinaRam manager at: 10.
+	lamb := ram offspring first.
+	self assert: lamb number equals: 100
 ]

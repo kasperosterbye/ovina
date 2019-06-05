@@ -90,6 +90,11 @@ OvinaEwe >> number: anObject [
 	number := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaEwe >> offspring [
+	^ OvinaLamb manager all select: [ :lamb | lamb momFK = id]
+]
+
 { #category : #accessing }
 OvinaEwe >> outDate [
 	<column: 'Ud dato'>

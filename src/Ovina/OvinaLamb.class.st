@@ -90,6 +90,11 @@ OvinaLamb >> comment: anObject [
 	comment := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaLamb >> dad [
+	^ OvinaRam manager at: dadFK
+]
+
 { #category : #accessing }
 OvinaLamb >> dadFK [
 	^ dadFK

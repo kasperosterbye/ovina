@@ -13,6 +13,11 @@ MockLoaderTest >> setUp [
 ]
 
 { #category : #tests }
+MockLoaderTest >> testEventDescriptor [
+	self assert: (OvinaEventDescription  manager at: 77) descComment equals: 'Marker1ForTest'
+]
+
+{ #category : #tests }
 MockLoaderTest >> testOneEwe [
 	self assert: (OvinaEwe manager at: 1000) name equals: 'Bolche'
 ]

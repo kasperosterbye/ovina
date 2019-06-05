@@ -8,22 +8,59 @@ Class {
 }
 
 { #category : #loading }
+MockOvinaEntityLoader >> loadEventDescriptions [
+	"return a collection of EventDescriptions"
+	"descTag descDate descComment descSeason id"
+	^ Dictionary new
+		at: 77
+		put: (OvinaEventDescription new
+			id: 77;
+			descTag: 'flytning';
+			descDate: '2019-05-12' asDate;
+			descComment: 'Marker1ForTest';
+			descSeason: 2019;
+			yourself);
+		yourself
+]
+
+{ #category : #loading }
+MockOvinaEntityLoader >> loadEvents [
+	"return a collection of Events"
+
+	"descFK sheepFK sheepKind eventDate value id"
+
+	^ Dictionary new
+		at: 777
+			put:
+			(OvinaEvent new
+				id: 777;
+				descFK: 77;
+				sheepFK: 1000;
+				sheepKind: OvinaEwe;
+				eventDate: '2019-05-12' asDate;
+				value: 'konge'; 
+				yourself);
+		yourself
+]
+
+{ #category : #loading }
 MockOvinaEntityLoader >> loadEwes [
 	"return a collection of Eves"
 
 	"eweID;name;chr;number;inDate;race;outDate"
 
-	^ Dictionary new 
+	^ Dictionary new
 		at: 1000
-		put: (OvinaEwe new
-		id: 1000;
-		name: 'Bolche';
-		chr: 112633;
-		number: 310;
-		inDate: '2017-04-02';
-		race: 'Texel';
-		outDate: nil;
-		yourself);
+			put:
+			(OvinaEwe new
+				id: 1000;
+				name: 'Bolche';
+				chr: 112633;
+				number: 310;
+				inDate: '2017-04-02' asDate;
+				race: 'Texel';
+				outDate: nil;
+				yourself);
 		yourself
 ]
 

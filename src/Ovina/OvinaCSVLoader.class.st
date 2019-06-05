@@ -28,6 +28,13 @@ OvinaCSVLoader class >> on: aPath [
 		yourself
 ]
 
+{ #category : #private }
+OvinaCSVLoader >> classFor: sheepKind [
+	(#('Ewe' 'Lamb' 'Ram') includes: sheepKind)
+		ifTrue: [ ^ self class environment at: ('Ovina' , sheepKind) asSymbol ]
+		ifFalse:[ OvinaCSVFormatError signal]
+]
+
 { #category : #files }
 OvinaCSVLoader >> eventDescriptorFile [
 	^ (path , 'descriptors.csv') asFileReference readStream
@@ -83,7 +90,8 @@ OvinaCSVLoader >> loadEvents [
 		addIntegerField: #id:;
 		addIntegerField: #descFK:;
 		addIntegerField: #sheepFK:;
-		addField: #sheepKind:;
+		addField: #sheepKind:
+			converter: [ :kind | self classFor: kind ];
 		addField: #eventDate: converter: [ :s | Date fromString: s ];
 		addField: #value:;
 		skipHeader.
