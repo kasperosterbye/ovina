@@ -26,7 +26,7 @@ OvinaEwe class >> noEwe [
 	| noEwe |
 	noEwe := self new.
 	noEwe
-		eweID: 'ID';
+		id: 'ID';
 		name: 'Navn';
 		chr: 'CHR';
 		number: 'Nummer';

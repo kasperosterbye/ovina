@@ -34,7 +34,7 @@ OvinaSheepPresenter class >> defaultSpec [
 
 { #category : #example }
 OvinaSheepPresenter class >> example [
-	self new openWithSpec 
+	OvinaEwePresenter new openWithSpec
 ]
 
 { #category : #accessing }

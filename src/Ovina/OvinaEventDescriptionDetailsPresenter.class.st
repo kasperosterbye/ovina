@@ -6,6 +6,7 @@ Class {
 		'descChangedBlock',
 		'descTagPresenter',
 		'descDatePresenter',
+		'descDefaultValuePresenter',
 		'descCommentPresenter'
 	],
 	#category : #'Ovina-GUI'
@@ -20,7 +21,8 @@ OvinaEventDescriptionDetailsPresenter class >> defaultSpec [
 		newRow: [ :row | 
 				row
 					add: #descTagPresenter;
-					add: #descDatePresenter ]
+					add: #descDatePresenter;
+					add: #descDefaultValuePresenter ]
 			origin: 0 @ 0
 			corner: 1 @ 0
 			offsetOrigin: 0 @ 0
@@ -76,6 +78,16 @@ OvinaEventDescriptionDetailsPresenter >> descDatePresenter: anObject [
 ]
 
 { #category : #accessing }
+OvinaEventDescriptionDetailsPresenter >> descDefaultValuePresenter [
+	^ descDefaultValuePresenter
+]
+
+{ #category : #accessing }
+OvinaEventDescriptionDetailsPresenter >> descDefaultValuePresenter: anObject [
+	descDefaultValuePresenter := anObject
+]
+
+{ #category : #accessing }
 OvinaEventDescriptionDetailsPresenter >> descTagPresenter [
 	^ descTagPresenter
 ]
@@ -105,9 +117,11 @@ descCommentPresenter textPresenter
 OvinaEventDescriptionDetailsPresenter >> initializeWidgets [
 	descTagPresenter := self instantiate: OvinaLabeledInputField.
 	descDatePresenter := self instantiate: OvinaLabeledInputField.
+	descDefaultValuePresenter := self instantiate: OvinaLabeledInputField.
 	descCommentPresenter := self instantiate: OvinaCommentField.
 	desc := OvinaEventDescription noEventDescription.
 	descTagPresenter label: 'Type' text: desc descTag.
 	descDatePresenter label: 'Dato' text: desc descDate.
+descDefaultValuePresenter label: 'Grundværdi' text: desc descDefaultValue.
 	descCommentPresenter label: 'Kommentar' text: desc descComment
 ]

@@ -6,7 +6,8 @@ Class {
 		'descDate',
 		'descComment',
 		'descSeason',
-		'id'
+		'id',
+		'descDefaultValue'
 	],
 	#category : #'Ovina-Model'
 }
@@ -19,13 +20,14 @@ OvinaEventDescription class >> loadSelector [
 { #category : #'instance manager' }
 OvinaEventDescription class >> noEventDescription [
 	"descID descTag descDate descComment descSeason"
+
 	| noEventDescription |
 	noEventDescription := self new.
 	noEventDescription
 		id: 'ID';
 		descTag: 'Type';
 		descDate: 'Dato';
-		descComment: 'Kommentar';
+		descDefaultValue: 'Grundværdi';		descComment: 'Kommentar';
 		descSeason: 'Sæson'.
 	^ noEventDescription
 ]
@@ -48,6 +50,16 @@ OvinaEventDescription >> descDate [
 { #category : #accessing }
 OvinaEventDescription >> descDate: anObject [
 	descDate := anObject
+]
+
+{ #category : #accessing }
+OvinaEventDescription >> descDefaultValue [
+	^ descDefaultValue
+]
+
+{ #category : #accessing }
+OvinaEventDescription >> descDefaultValue: anObject [
+	descDefaultValue := anObject
 ]
 
 { #category : #accessing }
