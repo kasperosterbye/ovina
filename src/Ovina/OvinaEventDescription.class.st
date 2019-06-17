@@ -22,7 +22,7 @@ OvinaEventDescription class >> noEventDescription [
 	| noEventDescription |
 	noEventDescription := self new.
 	noEventDescription
-		descID: 'ID';
+		id: 'ID';
 		descTag: 'Type';
 		descDate: 'Dato';
 		descComment: 'Kommentar';

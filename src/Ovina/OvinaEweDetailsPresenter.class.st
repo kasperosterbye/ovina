@@ -5,7 +5,6 @@ Class {
 	#name : #OvinaEweDetailsPresenter,
 	#superclass : #OvinaSheepDetailsPresenter,
 	#instVars : [
-		'eweIDPresenter',
 		'namePresenter',
 		'chrPresenter',
 		'numberPresenter',
@@ -53,16 +52,6 @@ OvinaEweDetailsPresenter >> chrPresenter: anObject [
 ]
 
 { #category : #accessing }
-OvinaEweDetailsPresenter >> eweIDPresenter [
-	^ eweIDPresenter
-]
-
-{ #category : #accessing }
-OvinaEweDetailsPresenter >> eweIDPresenter: anObject [
-	eweIDPresenter := anObject
-]
-
-{ #category : #accessing }
 OvinaEweDetailsPresenter >> inDatePresenter [
 	^ inDatePresenter
 ]
@@ -74,32 +63,27 @@ OvinaEweDetailsPresenter >> inDatePresenter: anObject [
 
 { #category : #initialization }
 OvinaEweDetailsPresenter >> initializePresenter [
-
-eweIDPresenter textPresenter
-		acceptBlock: [ :value | 
-			sheep eweID: value.
-			sheepChangedBlock value: sheep ].
-namePresenter textPresenter
+	namePresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep name: value.
 			sheepChangedBlock value: sheep ].
-chrPresenter textPresenter
+	chrPresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep chr: value.
 			sheepChangedBlock value: sheep ].
-numberPresenter textPresenter
+	numberPresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep number: value.
 			sheepChangedBlock value: sheep ].
-inDatePresenter textPresenter
+	inDatePresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep inDate: value.
 			sheepChangedBlock value: sheep ].
-racePresenter textPresenter
+	racePresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep race: value.
 			sheepChangedBlock value: sheep ].
-outDatePresenter textPresenter
+	outDatePresenter textPresenter
 		acceptBlock: [ :value | 
 			sheep outDate: value.
 			sheepChangedBlock value: sheep ]
@@ -107,7 +91,6 @@ outDatePresenter textPresenter
 
 { #category : #initialization }
 OvinaEweDetailsPresenter >> initializeWidgets [
-	eweIDPresenter := self instantiate: OvinaLabeledInputField.
 	namePresenter := self instantiate: OvinaLabeledInputField.
 	chrPresenter := self instantiate: OvinaLabeledInputField.
 	numberPresenter := self instantiate: OvinaLabeledInputField.
@@ -115,7 +98,6 @@ OvinaEweDetailsPresenter >> initializeWidgets [
 	racePresenter := self instantiate: OvinaLabeledInputField.
 	outDatePresenter := self instantiate: OvinaLabeledInputField.
 	sheep := OvinaEwe noEwe.
-	eweIDPresenter label: 'ID' text: sheep eweID.
 	namePresenter label: 'Navn' text: sheep name.
 	chrPresenter label: 'CHR' text: sheep chr.
 	numberPresenter label: 'Nummer' text: sheep number.
@@ -167,11 +149,10 @@ OvinaEweDetailsPresenter >> racePresenter: anObject [
 { #category : #accessing }
 OvinaEweDetailsPresenter >> sheep: newsheep [
 	super sheep: newsheep.
-	eweIDPresenter text: sheep eweID.
-namePresenter text: sheep name.
-chrPresenter text: sheep chr.
-numberPresenter text: sheep number.
-inDatePresenter text: sheep inDate.
-racePresenter text: sheep race.
-outDatePresenter text: sheep outDate
+	namePresenter text: sheep name.
+	chrPresenter text: sheep chr.
+	numberPresenter text: sheep number.
+	inDatePresenter text: sheep inDate.
+	racePresenter text: sheep race.
+	outDatePresenter text: sheep outDate
 ]
