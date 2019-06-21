@@ -98,7 +98,7 @@ OvinaEwe >> offspring [
 { #category : #accessing }
 OvinaEwe >> outDate [
 	<column: 'Ud dato'>
-	^ outDate
+	^ outDate ifNil: [ '' ]
 ]
 
 { #category : #accessing }
