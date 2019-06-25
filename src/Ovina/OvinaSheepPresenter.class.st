@@ -162,9 +162,9 @@ OvinaSheepPresenter >> fixedColumns [
 { #category : #initialization }
 OvinaSheepPresenter >> initializePresenter [
 	sheepListPresenter
-		whenSelectedItemsChanged: [ :col | self sheepSelection: col ].
+		whenSelectedItemsChanged: [ :collection | self sheepSelection: collection ].
 	columnPresenter
-		whenSelectedItemsChanged: [ :col | self columnsChanged ].
+		whenSelectedItemsChanged: [ :column | self columnsChanged ].
 	sheepPresenter
 		sheepChangedBlock: [ :changedSheep | sheepListPresenter updateTree ]
 ]

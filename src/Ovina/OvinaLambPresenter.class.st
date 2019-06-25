@@ -35,3 +35,8 @@ OvinaLambPresenter >> sheepType [
 
 	^ OvinaLamb
 ]
+
+{ #category : #'as yet unclassified' }
+OvinaLambPresenter >> updateTree [
+	sheepListPresenter updateTree
+]

@@ -37,6 +37,22 @@ Class {
 	#category : #'Ovina-Model'
 }
 
+{ #category : #filtering }
+OvinaLamb class >> filterCurrent [
+	"return only current animals"
+	<filter: 'aktuelle'>
+	^[:lamb | lamb outDate isNil]
+]
+
+{ #category : #filtering }
+OvinaLamb class >> filterMother: ewe [
+	"return only current animals"
+	<filter: 'specifik mor'>
+	^ (ewe isNoSheep )
+		ifTrue: [ [:e | true] ]
+		ifFalse: [ [:lamb | lamb mother = ewe] ]
+]
+
 { #category : #private }
 OvinaLamb class >> loadEntities [ 
 	entities := OvinaEntityLoader default loadLambs 

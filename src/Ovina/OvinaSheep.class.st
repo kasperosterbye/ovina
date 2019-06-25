@@ -13,3 +13,9 @@ Class {
 OvinaSheep >> chr [ 
 	self subclassResponsibility.
 ]
+
+{ #category : #acccessing }
+OvinaSheep >> isNoSheep [
+	"return if I represent a NoSheep"
+	^self id = 'ID'
+]

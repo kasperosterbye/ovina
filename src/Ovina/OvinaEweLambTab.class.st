@@ -25,10 +25,18 @@ OvinaEweLambTab >> ewesPresenter [
 	^ ewesPresenter
 ]
 
+{ #category : #api }
+OvinaEweLambTab >> extent [
+	^ 800@600
+]
+
 { #category : #'as yet unclassified' }
 OvinaEweLambTab >> initializePresenter [
 	
-	ewesPresenter selectionChangeBlock: [:sheep | sheep].
+	ewesPresenter selectionChangeBlock: [:sheep | 
+		OvinaLamb filter: (OvinaLamb filterMother: sheep).
+		lambsPresenter sheepListPresenter roots: OvinaLamb all.
+		].
 ]
 
 { #category : #initialization }
@@ -45,4 +53,9 @@ OvinaEweLambTab >> initializeWidgets [
 { #category : #'as yet unclassified' }
 OvinaEweLambTab >> lambsPresenter [
 	^ lambsPresenter
+]
+
+{ #category : #api }
+OvinaEweLambTab >> title [
+	^'Får og lam'
 ]

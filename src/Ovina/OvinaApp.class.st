@@ -49,6 +49,11 @@ OvinaApp >> eweLambTab: anObject [
 ]
 
 { #category : #initialization }
+OvinaApp >> extent [
+	^ 1200@800
+]
+
+{ #category : #initialization }
 OvinaApp >> initializePresenter [
         mainTabManager whenTabSelected: [ 'Hi there' logCr
           ].
@@ -84,4 +89,9 @@ OvinaApp >> overviewTab [
 { #category : #accessing }
 OvinaApp >> overviewTab: anObject [
 	overviewTab := anObject
+]
+
+{ #category : #initialization }
+OvinaApp >> title [
+	^'Ovina'
 ]
