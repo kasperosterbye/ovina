@@ -92,7 +92,7 @@ OvinaLamb >> comment: anObject [
 
 { #category : #public }
 OvinaLamb >> dad [
-	^ OvinaRam manager at: dadFK
+	^ OvinaRam  at: dadFK
 ]
 
 { #category : #accessing }
@@ -159,7 +159,7 @@ OvinaLamb >> momFK: anObject [
 
 { #category : #public }
 OvinaLamb >> mother [
-	^OvinaEwe manager at: (momFK)
+	^OvinaEwe  at: (momFK)
 ]
 
 { #category : #accessing }

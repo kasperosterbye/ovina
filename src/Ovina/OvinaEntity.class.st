@@ -14,66 +14,54 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
+{ #category : #'entity management' }
 OvinaEntity class >> all [
 	^ self entities values
 ]
 
-{ #category : #enumerating }
+{ #category : #'entity management' }
 OvinaEntity class >> allDo: aBlock [
 	entities valuesDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : #'entity management' }
 OvinaEntity class >> at: id [
 	
 	^ self entities at: id
 ]
 
-{ #category : #accessing }
+{ #category : #'entity management' }
 OvinaEntity class >> at: key put: sheep [
 	self entities at: key put: sheep
 ]
 
-{ #category : #accessing }
+{ #category : #'entity management' }
 OvinaEntity class >> entities [
 		entities isNil
 		ifTrue: [ self loadEntities ].
 		^entities
 ]
 
-{ #category : #'class initialization' }
-OvinaEntity class >> initialize [
-	entities := Dictionary new.
-]
-
-{ #category : #private }
+{ #category : #'entity management' }
 OvinaEntity class >> loadEntities [
 	
 	self subclassResponsibility 
 ]
 
-{ #category : #public }
-OvinaEntity class >> manager [
-	"manager isNil
-		ifTrue: [ manager := OvinaEntityManager with: self loadSelector ].
-	^ manager"
-	^self.
-]
-
-{ #category : #public }
+{ #category : #'entity management' }
 OvinaEntity class >> managerReset [
-	entities := nil
+	"force lazy load in method entities"
+	entities := nil.
 ]
 
-{ #category : #public }
+{ #category : #'entity management' }
 OvinaEntity class >> managersReset [
 	"send the managerReset method to all leaf classes of me"
 	(self allSubclasses select: [ :cl | cl subclasses isEmpty ])
 		do: [ :entityClass | entityClass managerReset  ]
 ]
 
-{ #category : #accessing }
+{ #category : #'entity management' }
 OvinaEntity class >> size [
 	^ self entities size
 ]

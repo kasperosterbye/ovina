@@ -20,55 +20,55 @@ OvinaCSVLoaderTest >> setUp [
 { #category : #tests }
 OvinaCSVLoaderTest >> testBuster [
 	| buster |
-	buster := OvinaRam manager at: 3.
+	buster := OvinaRam  at: 3.
 	self assert: buster name equals: 'Buster'
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEventDescriptions [
 	| man |
-	man := OvinaEventDescription manager.
+	man := OvinaEventDescription .
 	self assert: man size equals: 72
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEvents [
 	| man |
-	man := OvinaEvent manager.
+	man := OvinaEvent .
 	self assert: man size equals: 1305
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadEwes [
 	| man |
-	man := OvinaEwe manager.
+	man := OvinaEwe .
 	self assert: man size equals: 62
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadLambs [
 	| man |
-	man := OvinaLamb manager.
+	man := OvinaLamb .
 	self assert: man size > 0 equals: true
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testLoadRams [
 	| man |
-	man := OvinaRam manager.
+	man := OvinaRam .
 	self assert: man size equals: 7
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testManagerNotNil [
 	| man |
-	man := OvinaSheep manager.
+	man := OvinaSheep .
 	self deny: man equals: nil. 
 ]
 
 { #category : #tests }
 OvinaCSVLoaderTest >> testPingoLamb [
 	| pingo |
-	pingo := OvinaLamb manager at: 7.
+	pingo := OvinaLamb  at: 7.
 	self assert: pingo comment equals: 'Pingo - Kasper tester'
 ]

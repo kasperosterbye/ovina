@@ -14,20 +14,20 @@ MockLoaderTest >> setUp [
 
 { #category : #tests }
 MockLoaderTest >> testEventDescriptor [
-	self assert: (OvinaEventDescription  manager at: 77) descComment equals: 'Marker1ForTest'
+	self assert: (OvinaEventDescription at: 77) descComment equals: 'Marker1ForTest'
 ]
 
 { #category : #tests }
 MockLoaderTest >> testOneEwe [
-	self assert: (OvinaEwe manager at: 1000) name equals: 'Bolche'
+	self assert: (OvinaEwe  at: 1000) name equals: 'Bolche'
 ]
 
 { #category : #tests }
 MockLoaderTest >> testOneLamb [
-	self assert: (OvinaLamb manager at: 100) sex equals: 'gimmer'
+	self assert: (OvinaLamb  at: 100) sex equals: 'gimmer'
 ]
 
 { #category : #tests }
 MockLoaderTest >> testTwoRams [
-	self assert: (OvinaRam manager at: 10) number equals: 10
+	self assert: (OvinaRam  at: 10) number equals: 10
 ]

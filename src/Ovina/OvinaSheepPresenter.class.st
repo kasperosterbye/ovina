@@ -60,7 +60,7 @@ OvinaSheepPresenter >> allColumns [
 
 { #category : #private }
 OvinaSheepPresenter >> allSheeps [
-	^ self sheepType manager all
+	^ self sheepType all
 ]
 
 { #category : #private }

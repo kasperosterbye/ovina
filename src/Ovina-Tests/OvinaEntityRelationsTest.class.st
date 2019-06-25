@@ -35,7 +35,7 @@ OvinaEntityRelationsTest >> tearDown [
 { #category : #tests }
 OvinaEntityRelationsTest >> testDad [
 	| lamb dad |
-	lamb := OvinaLamb manager at: 100.
+	lamb := OvinaLamb  at: 100.
 	dad := lamb dad.
 	self assert: dad name equals: 'Ingolf' 
 ]
@@ -45,7 +45,7 @@ OvinaEntityRelationsTest >> testDescriptionToEvents [
 	"test that one can move from a description to its events"
 
 	| desc event |
-	desc := OvinaEventDescription manager at: 77.
+	desc := OvinaEventDescription  at: 77.
 	event := desc events first.
 	self assert: event value equals: 'konge'
 ]
@@ -55,7 +55,7 @@ OvinaEntityRelationsTest >> testEventSheep [
 	"test that one can move from event to the animal in question"
 
 	| event sheep |
-	event := OvinaEvent manager at: 777.
+	event := OvinaEvent  at: 777.
 	sheep := event sheep.
 	self assert: sheep name equals: 'Bolche'.
 ]
@@ -65,7 +65,7 @@ OvinaEntityRelationsTest >> testEventToDescription [
 	"test that one can move from event to description"
 
 	| event desc |
-	event := OvinaEvent manager at: 777.
+	event := OvinaEvent  at: 777.
 	desc := event description.
 	self assert: desc descTag equals: 'flytning'.
 ]
@@ -73,7 +73,7 @@ OvinaEntityRelationsTest >> testEventToDescription [
 { #category : #tests }
 OvinaEntityRelationsTest >> testEweOffspring [
 	| ewe lamb |
-	ewe := OvinaEwe manager at: 1000.
+	ewe := OvinaEwe  at: 1000.
 	lamb := ewe offspring first.
 	self assert: lamb number equals: 100.
 ]
@@ -81,7 +81,7 @@ OvinaEntityRelationsTest >> testEweOffspring [
 { #category : #tests }
 OvinaEntityRelationsTest >> testMom [
 	| lamb mom |
-	lamb := OvinaLamb manager at: 100.
+	lamb := OvinaLamb  at: 100.
 	mom := lamb mother.
 	self assert: mom name equals: 'Bolche'
 ]
@@ -89,7 +89,7 @@ OvinaEntityRelationsTest >> testMom [
 { #category : #tests }
 OvinaEntityRelationsTest >> testRamOffspring [
 	| ram lamb |
-	ram := OvinaRam manager at: 10.
+	ram := OvinaRam  at: 10.
 	lamb := ram offspring first.
 	self assert: lamb number equals: 100
 ]

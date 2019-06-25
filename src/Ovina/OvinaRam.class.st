@@ -105,7 +105,7 @@ OvinaRam >> number: anObject [
 
 { #category : #public }
 OvinaRam >> offspring [
-	^OvinaLamb manager all select: [ :lamb | lamb dadFK = id ]
+	^OvinaLamb  all select: [ :lamb | lamb dadFK = id ]
 ]
 
 { #category : #printing }
