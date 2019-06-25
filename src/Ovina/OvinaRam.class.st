@@ -31,9 +31,9 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
-OvinaRam class >> loadSelector [
-	^ #loadRams
+{ #category : #private }
+OvinaRam class >> loadEntities [ 
+	entities := OvinaEntityLoader default loadRams 
 ]
 
 { #category : #'instance creation' }

@@ -15,7 +15,7 @@ Class {
 		'colorPresenter',
 		'commentPresenter'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

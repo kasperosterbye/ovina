@@ -11,7 +11,7 @@ Class {
 		'inDatePresenter',
 		'racePresenter'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

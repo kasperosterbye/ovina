@@ -37,9 +37,9 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
-OvinaLamb class >> loadSelector [
-	^ #loadLambs
+{ #category : #private }
+OvinaLamb class >> loadEntities [ 
+	entities := OvinaEntityLoader default loadLambs 
 ]
 
 { #category : #'instance manager' }

@@ -17,9 +17,10 @@ Class {
 		'view',
 		'sheep',
 		'sheepListPresenter',
-		'sheepPresenter'
+		'sheepPresenter',
+		'selectionChangeBlock'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }
@@ -202,6 +203,16 @@ OvinaSheepPresenter >> selectedSheepColumns [
 ]
 
 { #category : #accessing }
+OvinaSheepPresenter >> selectionChangeBlock [
+	^ selectionChangeBlock
+]
+
+{ #category : #accessing }
+OvinaSheepPresenter >> selectionChangeBlock: anObject [
+	selectionChangeBlock := anObject
+]
+
+{ #category : #accessing }
 OvinaSheepPresenter >> sheep [
 	^ sheep
 ]
@@ -236,7 +247,8 @@ OvinaSheepPresenter >> sheepSelection: aSelectionCollection [
 	sheep := aSelectionCollection isEmpty
 		ifTrue: [ self noSheep ]
 		ifFalse: [ aSelectionCollection first ].
-	sheepPresenter sheep: sheep
+	sheepPresenter sheep: sheep.
+	selectionChangeBlock ifNotNil: [ selectionChangeBlock value: sheep ]
 ]
 
 { #category : #abstract }

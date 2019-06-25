@@ -12,7 +12,7 @@ Class {
 		'racePresenter',
 		'outDatePresenter'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

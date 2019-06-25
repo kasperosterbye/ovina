@@ -10,7 +10,7 @@ Class {
 		'sheep',
 		'sheepChangedBlock'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #'as yet unclassified' }

@@ -22,7 +22,7 @@ OvinaEntityRelationsTest >> setUp [
 
 	super setUp.
 	OvinaEntityLoader default: MockOvinaEntityLoader new.
-	OvinaSheep managersReset
+	OvinaEntity managersReset
 ]
 
 { #category : #running }

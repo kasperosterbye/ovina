@@ -16,9 +16,9 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
-OvinaEwe class >> loadSelector [
-	^ #loadEwes
+{ #category : #private }
+OvinaEwe class >> loadEntities [ 
+	entities := OvinaEntityLoader default loadEwes 
 ]
 
 { #category : #'instance manager' }

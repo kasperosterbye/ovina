@@ -12,9 +12,9 @@ Class {
 	#category : #'Ovina-Model'
 }
 
-{ #category : #accessing }
-OvinaEventDescription class >> loadSelector [
-	^ #loadEventDescriptions
+{ #category : #private }
+OvinaEventDescription class >> loadEntities [ 
+	entities := OvinaEntityLoader default loadEventDescriptions  
 ]
 
 { #category : #'instance manager' }

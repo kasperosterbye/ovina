@@ -67,14 +67,6 @@ OvinaCSVLoaderTest >> testManagerNotNil [
 ]
 
 { #category : #tests }
-OvinaCSVLoaderTest >> testManagerReset [
-	| man |
-	man := OvinaSheep manager.
-	man reset.
-	man allDo: [self fail]. 
-]
-
-{ #category : #tests }
 OvinaCSVLoaderTest >> testPingoLamb [
 	| pingo |
 	pingo := OvinaLamb manager at: 7.

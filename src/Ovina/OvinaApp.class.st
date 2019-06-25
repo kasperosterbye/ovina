@@ -23,6 +23,8 @@ OvinaApp class >> defaultSpec [
 { #category : #examples }
 OvinaApp class >> start [
 	<example>
+	OvinaEntityLoader default: nil.
+	OvinaEntity managersReset.
 	self new openWithSpec.
 ]
 

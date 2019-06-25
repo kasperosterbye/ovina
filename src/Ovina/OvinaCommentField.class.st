@@ -4,7 +4,7 @@ I represent a comment field presenter. I am just a normal labeled input field, b
 Class {
 	#name : #OvinaCommentField,
 	#superclass : #OvinaLabeledInputField,
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

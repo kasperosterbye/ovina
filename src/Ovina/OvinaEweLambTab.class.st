@@ -25,14 +25,21 @@ OvinaEweLambTab >> ewesPresenter [
 	^ ewesPresenter
 ]
 
+{ #category : #'as yet unclassified' }
+OvinaEweLambTab >> initializePresenter [
+	
+	ewesPresenter selectionChangeBlock: [:sheep | sheep].
+]
+
 { #category : #initialization }
 OvinaEweLambTab >> initializeWidgets [
 	ewesPresenter := self instantiate: OvinaEwePresenter.
 	lambsPresenter := self instantiate: OvinaLambPresenter.
 	
-	ewesPresenter whenBuiltDo: [ :b | b widget borderWidth: 1 ].
-	
+	ewesPresenter whenBuiltDo: [ :b | b widget borderWidth: 1 ].	
 	lambsPresenter whenBuiltDo: [ :b | b widget borderWidth: 1 ].
+	
+	
 ]
 
 { #category : #'as yet unclassified' }

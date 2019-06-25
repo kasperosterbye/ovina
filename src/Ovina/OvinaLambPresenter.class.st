@@ -4,7 +4,7 @@ I present lambs
 Class {
 	#name : #OvinaLambPresenter,
 	#superclass : #OvinaSheepPresenter,
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

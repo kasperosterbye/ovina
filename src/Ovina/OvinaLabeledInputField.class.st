@@ -9,7 +9,7 @@ Class {
 		'labelPresenter',
 		'textPresenter'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-SheepLists'
 }
 
 { #category : #specs }

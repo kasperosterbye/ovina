@@ -9,7 +9,7 @@ Class {
 		'descDefaultValuePresenter',
 		'descCommentPresenter'
 	],
-	#category : #'Ovina-GUI'
+	#category : #'Ovina-GUI-EventLists'
 }
 
 { #category : #specs }
