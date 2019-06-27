@@ -92,7 +92,7 @@ OvinaEwe >> number: anObject [
 
 { #category : #public }
 OvinaEwe >> offspring [
-	^ OvinaLamb  all select: [ :lamb | lamb momFK = id]
+	^ OvinaLamb all select: [ :lamb | lamb momFK = id]
 ]
 
 { #category : #accessing }

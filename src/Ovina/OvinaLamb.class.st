@@ -163,6 +163,28 @@ OvinaLamb >> inDate: anObject [
 	inDate := anObject
 ]
 
+{ #category : #public }
+OvinaLamb >> lastGrowthPrognosis [
+	| weights secondLastWeight secondLastDate lastWeight lastDate deltaDay deltaWeight gramPerDay |
+	weights := (OvinaEvent all 
+					select: [ :ev |  ev description descTag = 'Veje lam' ]) 
+				ifEmpty: [ ^self growth  ].
+	secondLastWeight := 5.0.
+	secondLastDate := self inDate .
+	weights size > 1
+		ifTrue: [ 
+			secondLastWeight := weights nextToLast value asNumber.
+			secondLastDate := weights nextToLast eventDate
+			 ].
+	lastWeight := weights last value asNumber.
+	lastDate := weights last eventDate.
+	deltaDay := (lastDate - secondLastDate) asDays.
+	deltaWeight := lastWeight - secondLastWeight.
+	gramPerDay := deltaWeight * 1000 / deltaDay.
+	^gramPerDay
+
+]
+
 { #category : #accessing }
 OvinaLamb >> momFK [
 	^ momFK

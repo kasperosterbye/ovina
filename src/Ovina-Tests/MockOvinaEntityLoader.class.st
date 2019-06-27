@@ -40,6 +40,26 @@ MockOvinaEntityLoader >> loadEvents [
 				eventDate: '2019-05-12' asDate;
 				value: 'konge'; 
 				yourself);
+		at: 888
+			put:
+			(OvinaEvent new
+				id: 888;
+				descFK: 77;
+				sheepFK: 1000;
+				sheepKind: OvinaEwe;
+				eventDate: '2019-05-17' asDate;
+				value: 'sæter';  
+				yourself);
+		at: 111
+			put:
+			(OvinaEvent new
+				id: 111;
+				descFK: 77;
+				sheepFK: 100;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-05-17' asDate;
+				value: 'sæter';  
+				yourself);
 		yourself
 ]
 

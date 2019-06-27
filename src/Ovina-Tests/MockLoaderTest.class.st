@@ -9,7 +9,7 @@ MockLoaderTest >> setUp [
 	"Hooks that subclasses may override to define the fixture of test."
 	super setUp.
 	OvinaEntityLoader default: MockOvinaEntityLoader new.
-	OvinaSheep managersReset
+	OvinaEntity managersReset
 ]
 
 { #category : #tests }
