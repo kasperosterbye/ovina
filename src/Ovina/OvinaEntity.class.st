@@ -9,15 +9,14 @@ Class {
 	#name : #OvinaEntity,
 	#superclass : #Object,
 	#classInstVars : [
-		'entities',
-		'filter'
+		'entities'
 	],
 	#category : #'Ovina-Model'
 }
 
 { #category : #'entity management' }
 OvinaEntity class >> all [
-	^ self entities values select: [ :entity | self filter value: entity ]
+	^ self entities values 
 ]
 
 { #category : #'entity management' }
@@ -41,17 +40,6 @@ OvinaEntity class >> entities [
 		entities isNil
 		ifTrue: [ self loadEntities ].
 		^entities
-]
-
-{ #category : #filtering }
-OvinaEntity class >> filter [
-	filter ifNil: [ filter := [ :entity | true ] ].
-	^ filter 
-]
-
-{ #category : #filtering }
-OvinaEntity class >> filter: aBlock [
-	filter := aBlock
 ]
 
 { #category : #'entity management' }
