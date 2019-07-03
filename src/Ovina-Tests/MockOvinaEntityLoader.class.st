@@ -20,6 +20,14 @@ MockOvinaEntityLoader >> loadEventDescriptions [
 			descComment: 'Marker1ForTest';
 			descSeason: 2019;
 			yourself);
+		at: 78 
+		put: (OvinaEventDescription new
+			id: 78;
+			descTag: 'Veje lam';
+			descDate: '2019-05-12' asDate;
+			descComment: 'Marker2ForTest';
+			descSeason: 2019;
+			yourself);
 		yourself
 ]
 
@@ -34,7 +42,7 @@ MockOvinaEntityLoader >> loadEvents [
 			put:
 			(OvinaEvent new
 				id: 777;
-				descFK: 77;
+				descFK: 77; "Flytning"
 				sheepFK: 1000;
 				sheepKind: OvinaEwe;
 				eventDate: '2019-05-12' asDate;
@@ -44,7 +52,7 @@ MockOvinaEntityLoader >> loadEvents [
 			put:
 			(OvinaEvent new
 				id: 888;
-				descFK: 77;
+				descFK: 77; "Flytning"
 				sheepFK: 1000;
 				sheepKind: OvinaEwe;
 				eventDate: '2019-05-17' asDate;
@@ -54,11 +62,20 @@ MockOvinaEntityLoader >> loadEvents [
 			put:
 			(OvinaEvent new
 				id: 111;
-				descFK: 77;
+				descFK: 77; "Flytning"
 				sheepFK: 100;
 				sheepKind: OvinaLamb;
 				eventDate: '2019-05-17' asDate;
 				value: 'sæter';  
+				yourself);
+		at: 112
+		put: (OvinaEvent new
+				id: 112;
+				descFK: 78; "Veje lam"
+				sheepFK: 101;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-04-20' asDate;
+				value: '15';  
 				yourself);
 		yourself
 ]
@@ -88,23 +105,38 @@ MockOvinaEntityLoader >> loadEwes [
 MockOvinaEntityLoader >> loadLambs [
 	"return a collection of Lambs"
 
-	^ Dictionary new 
+	^ Dictionary new
 		at: 100
-		put: (OvinaLamb new
-		id: 100;
-		number: 100;
-		momFK: 1000;
-		dadFK: 10;
-		inDate: '2018-03-28' asDate;
-		event: 'let';
-		sex: 'gimmer';
-		growth: 150;
-		usage: 'avl';
-		color: 'hvid';
-		comment: 'Nuser';
-		yourself);
-		yourself
-		
+			put:
+			(OvinaLamb new
+				id: 100;
+				number: 100;
+				momFK: 1000;
+				dadFK: 10;
+				inDate: '2018-03-28' asDate;
+				event: 'let';
+				sex: 'gimmer';
+				growth: 150;
+				usage: 'avl';
+				color: 'hvid';
+				comment: 'Nuser';
+				yourself); "Veje lam test, en vejning efter 50 dage"
+		at: 101
+			put:
+			(OvinaLamb new
+				id: 101;
+				number: 101;
+				momFK: 1000;
+				dadFK: 10;
+				inDate: '2019-03-01' asDate;
+				event: 'let';
+				sex: 'gimmer';
+				growth: -1;
+				usage: 'avl';
+				color: 'hvid';
+				comment: 'En vejning';
+				yourself);
+		yourself	
 ]
 
 { #category : #loading }

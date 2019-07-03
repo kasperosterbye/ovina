@@ -33,13 +33,20 @@ OvinaEventAccessTest >> testLastGrowthPrognosisMoreMeasurements [
 { #category : #tests }
 OvinaEventAccessTest >> testLastGrowthPrognosisNoMeasurements [
 	"Test the case where there are no measurements/events, and we just have to rely on the finale registred data. This is the case for older lambs"
-	self fail.
+	| lamb lgp |
+	lamb := OvinaLamb at: 100.
+	lgp := lamb lastGrowthPrognosis .
+	self assert: lgp equals: 150.
+	
 ]
 
 { #category : #tests }
 OvinaEventAccessTest >> testLastGrowthPrognosisOneMeasurement [
 	"Test the case with just one measurement"
-	self fail.
+		| lamb lgp |
+	lamb := OvinaLamb at: 101.
+	lgp := lamb lastGrowthPrognosis .
+	self assert: lgp equals: 200.
 ]
 
 { #category : #tests }
