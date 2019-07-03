@@ -14,6 +14,11 @@ OvinaSheep >> chr [
 	self subclassResponsibility.
 ]
 
+{ #category : #accessing }
+OvinaSheep >> events [
+	^OvinaEvent  all select: [ :ev | ev sheep = self ]
+]
+
 { #category : #acccessing }
 OvinaSheep >> isNoSheep [
 	"return if I represent a NoSheep"
@@ -22,9 +27,7 @@ OvinaSheep >> isNoSheep [
 
 { #category : #acccessing }
 OvinaSheep >> lastEvent: eventName [
-	^ (
-		(OvinaEvent  all select: [ :ev | ev sheep = self ])
-		select: [ :ev | ev description descTag = eventName ])
+	^ (self events select: [ :ev | ev description descTag = eventName ])
 		detectMax:  [ :ev | ev eventDate ]
 ]
 

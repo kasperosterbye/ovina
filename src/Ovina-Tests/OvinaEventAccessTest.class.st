@@ -27,7 +27,11 @@ OvinaEventAccessTest >> testLastEvent [
 { #category : #tests }
 OvinaEventAccessTest >> testLastGrowthPrognosisMoreMeasurements [
 	"Test the case with just more than two measurement"
-	self fail.
+
+	| lamb lgp |
+	lamb := OvinaLamb at: 103.
+	lgp := lamb lastGrowthPrognosis.
+	self assert: lgp equals: 150
 ]
 
 { #category : #tests }
@@ -52,7 +56,11 @@ OvinaEventAccessTest >> testLastGrowthPrognosisOneMeasurement [
 { #category : #tests }
 OvinaEventAccessTest >> testLastGrowthPrognosisTwoMeasurements [
 	"Test the case with just two measurement"
-	self fail.
+
+	| lamb lgp |
+	lamb := OvinaLamb at: 102.
+	lgp := lamb lastGrowthPrognosis.
+	self assert: lgp equals: 250
 ]
 
 { #category : #tests }

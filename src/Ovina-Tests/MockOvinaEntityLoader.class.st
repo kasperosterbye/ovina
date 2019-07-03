@@ -77,6 +77,51 @@ MockOvinaEntityLoader >> loadEvents [
 				eventDate: '2019-04-20' asDate;
 				value: '15';  
 				yourself);
+		at: 113
+		put: (OvinaEvent new
+				id: 113;
+				descFK: 78; "2* Veje lam"
+				sheepFK: 102;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-05-01' asDate;
+				value: '20';  
+				yourself);
+		at: 114
+		put: (OvinaEvent new
+				id: 114;
+				descFK: 78; "2* Veje lam"
+				sheepFK: 102;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-05-21' asDate;
+				value: '25';  
+				yourself);
+		at: 115
+		put: (OvinaEvent new
+				id: 113;
+				descFK: 78; "3* Veje lam"
+				sheepFK: 103;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-05-01' asDate;
+				value: '20';  
+				yourself);
+		at: 116
+		put: (OvinaEvent new
+				id: 113;
+				descFK: 78; "3* Veje lam"
+				sheepFK: 103;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-05-21' asDate;
+				value: '23';  
+				yourself);
+		at: 117
+		put: (OvinaEvent new
+				id: 114;
+				descFK: 78; "3* Veje lam"
+				sheepFK: 103;
+				sheepKind: OvinaLamb;
+				eventDate: '2019-08-29' asDate;
+				value: '38';  
+				yourself);
 		yourself
 ]
 
@@ -135,6 +180,36 @@ MockOvinaEntityLoader >> loadLambs [
 				usage: 'avl';
 				color: 'hvid';
 				comment: 'En vejning';
+				yourself);
+		at: 102
+			put:
+			(OvinaLamb new
+				id: 102;
+				number: 102;
+				momFK: 1000;
+				dadFK: 10;
+				inDate: '2019-03-01' asDate;
+				event: 'let';
+				sex: 'gimmer';
+				growth: -1;
+				usage: 'avl';
+				color: 'hvid';
+				comment: 'To vejninger';
+				yourself);
+		at: 103
+			put:
+			(OvinaLamb new
+				id: 103;
+				number: 102;
+				momFK: 1000;
+				dadFK: 10;
+				inDate: '2019-03-01' asDate;
+				event: 'let';
+				sex: 'gimmer';
+				growth: -1;
+				usage: 'avl';
+				color: 'hvid';
+				comment: 'Tre vejninger';
 				yourself);
 		yourself	
 ]

@@ -46,7 +46,7 @@ OvinaEntityRelationsTest >> testDescriptionToEvents [
 
 	| desc event |
 	desc := OvinaEventDescription  at: 77.
-	event := desc events first.
+	event := (desc events select: [ :ev | ev id = 777 ]) first.
 	self assert: event value equals: 'konge'
 ]
 
