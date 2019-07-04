@@ -33,9 +33,8 @@ OvinaEweLambTab >> extent [
 { #category : #'as yet unclassified' }
 OvinaEweLambTab >> initializePresenter [
 	
-	ewesPresenter selectionChangeBlock: [:sheep | 
-		OvinaLamb filter: (OvinaLamb filterMother: sheep).
-		lambsPresenter sheepListPresenter roots: OvinaLamb all.
+	ewesPresenter selectionChangeBlock: [ :ewe | 
+		lambsPresenter sheepListPresenter roots: (OvinaLamb allOfMother: ewe) .
 		].
 ]
 

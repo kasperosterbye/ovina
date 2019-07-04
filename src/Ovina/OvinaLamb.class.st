@@ -38,19 +38,18 @@ Class {
 }
 
 { #category : #filtering }
+OvinaLamb class >> allOfMother: ewe [
+	"return only lambs of ewe"
+	^ (ewe isNoSheep )
+		ifTrue: [ self all ]
+		ifFalse: [ self all select: [:lamb | lamb mother = ewe] ]
+]
+
+{ #category : #filtering }
 OvinaLamb class >> filterCurrent [
 	"return only current animals"
 	<filter: 'aktuelle'>
 	^[:lamb | lamb outDate isNil]
-]
-
-{ #category : #filtering }
-OvinaLamb class >> filterMother: ewe [
-	"return only current animals"
-	<filter: 'specifik mor'>
-	^ (ewe isNoSheep )
-		ifTrue: [ [:e | true] ]
-		ifFalse: [ [:lamb | lamb mother = ewe] ]
 ]
 
 { #category : #private }
