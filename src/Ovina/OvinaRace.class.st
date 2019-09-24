@@ -55,11 +55,11 @@ OvinaRace class >> newFromFreeText: aString [
 		(raceLetters at: i - 1) = (raceLetters at: i)
 			ifTrue: [ count := count + 1 ]
 			ifFalse: [ res
-					<< count;
+					<< count asString;
 					<< (raceLetters at: i - 1).
 				count := 1 ] ].
 	res
-		<< count;
+		<< count asString;
 		<< raceLetters last.
 	^ self newFromString: res contents
 ]
@@ -143,8 +143,8 @@ OvinaRace >> normalize [
 	map keys sort
 		do: [ :key | 
 			str
-				<< (map at: key);
-				<< key ].
+				<< (map at: key) asString;
+				<< key asString].
 	raceString := str contents
 ]
 

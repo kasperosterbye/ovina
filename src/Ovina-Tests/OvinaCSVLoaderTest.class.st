@@ -13,7 +13,7 @@ OvinaCSVLoaderTest >> setUp [
 
 	super setUp.
 	OvinaEntityLoader
-		default: (OvinaCSVLoader on: '/Users/kasper/_Projects/Pharo/ovina_test/').
+		default: (OvinaCSVLoader on: '/Users/kasper/Dropbox/_Projects/Pharo/ovina_test/').
 	OvinaEntity managersReset
 ]
 

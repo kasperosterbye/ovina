@@ -53,7 +53,7 @@ OvinaCSVLoader >> eweFile [
 
 { #category : #initialization }
 OvinaCSVLoader >> initialize [
-	path := '/Users/kasper/_Projects/Pharo/ovina_csv/'.
+	path := '/Users/kasper/Dropbox/_Projects/Pharo/ovina_csv/'.
 ]
 
 { #category : #files }
