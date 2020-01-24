@@ -3,21 +3,21 @@ I am the entry point for the OvinaApp
 "
 Class {
 	#name : #OvinaApp,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
-		'mainTabManager',
-		'eweLambTab',
-		'eventsTab',
-		'overviewTab'
+		'eventsPage',
+		'eweLambPage',
+		'mainNotebook',
+		'overviewPage'
 	],
 	#category : #'Ovina-GUI'
 }
 
 { #category : #specs }
 OvinaApp class >> defaultSpec [
-	^ SpecLayout composed
-          add: #mainTabManager;
-          yourself
+	^ SpBoxLayout newHorizontal 
+		add: #mainNotebook ;
+      yourself
 ]
 
 { #category : #examples }
@@ -28,24 +28,47 @@ OvinaApp class >> start [
 	self new openWithSpec.
 ]
 
-{ #category : #accessing }
-OvinaApp >> eventsTab [
-	^ eventsTab
+{ #category : #specs }
+OvinaApp class >> tableExample [
+	<example>
+	| example items|
+	items := String methods.
+	example := SpTablePresenter new.
+	example
+		items: items;
+		addColumn: (SpStringTableColumn title: 'Selector' evaluated: #selector) beEditable ;
+		addColumn: (SpStringTableColumn title: 'Size' evaluated: #size);
+		addColumn: (SpCheckBoxTableColumn title: 'Extension' evaluated: #isExtension );
+		showColumnHeaders;
+		openWithSpec.
+	^ example
+]
+
+{ #category : #deprecation }
+OvinaApp >> deprecated: anExplanationString on: date in: version [
+	"Warn that the sending method has been deprecated"
+	
+	self error: 'This is soo oldschool to call this method'
 ]
 
 { #category : #accessing }
-OvinaApp >> eventsTab: anObject [
-	eventsTab := anObject
+OvinaApp >> eventsPage [
+	^ eventsPage
 ]
 
 { #category : #accessing }
-OvinaApp >> eweLambTab [
-	^ eweLambTab
+OvinaApp >> eventsPage: anObject [
+	eventsPage := anObject
 ]
 
 { #category : #accessing }
-OvinaApp >> eweLambTab: anObject [
-	eweLambTab := anObject
+OvinaApp >> eweLambPage [
+	^ eweLambPage
+]
+
+{ #category : #accessing }
+OvinaApp >> eweLambPage: anObject [
+	eweLambPage := anObject
 ]
 
 { #category : #initialization }
@@ -55,40 +78,38 @@ OvinaApp >> extent [
 
 { #category : #initialization }
 OvinaApp >> initializePresenter [
-        mainTabManager whenTabSelected: [ 'Hi there' logCr
-          ].
+   mainNotebook whenSelectedPageChangedDo: [ 'Hi there' logCr].
 ]
 
 { #category : #initialization }
 OvinaApp >> initializeWidgets [
 	| tab |
-	mainTabManager := self newTabManager.
-	tab := self newTab.
-	tab presenter: OvinaEweLambTab  new.
+	mainNotebook := self newNotebook .
+	tab := self newNotebookPage .
+	tab presenterProvider: [OvinaEweLambTab  new].
 	tab
-		label: 'Får og lam';
-		closeable: false.
-	mainTabManager addTab: tab
+		title: 'Får og lam'.
+	mainNotebook addPage: tab
 ]
 
 { #category : #accessing }
-OvinaApp >> mainTabManager [
-	^ mainTabManager
+OvinaApp >> mainNotebook [
+	^ mainNotebook
 ]
 
 { #category : #accessing }
-OvinaApp >> mainTabManager: anObject [
-	mainTabManager := anObject
+OvinaApp >> mainNotebook: anObject [
+	mainNotebook := anObject
 ]
 
 { #category : #accessing }
-OvinaApp >> overviewTab [
-	^ overviewTab
+OvinaApp >> overviewPage [
+	^ overviewPage
 ]
 
 { #category : #accessing }
-OvinaApp >> overviewTab: anObject [
-	overviewTab := anObject
+OvinaApp >> overviewPage: anObject [
+	overviewPage := anObject
 ]
 
 { #category : #initialization }

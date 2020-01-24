@@ -24,7 +24,7 @@ OvinaLambDetailsPresenter class >> defaultSpec [
 
 	| height |
 	height := OvinaLabeledInputField height.
-	^ SpecLayout composed
+	^ SpBoxLayout newVertical
 		newRow: [ :row | 
 				row
 					add: #numberPresenter;

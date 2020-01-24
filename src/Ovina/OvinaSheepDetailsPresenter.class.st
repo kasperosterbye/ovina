@@ -5,7 +5,7 @@ The exact composition of my layout depends on the kind of my sheeps (Ram, Ewe or
 "
 Class {
 	#name : #OvinaSheepDetailsPresenter,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'sheep',
 		'sheepChangedBlock'

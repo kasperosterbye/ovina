@@ -18,7 +18,7 @@ Class {
 OvinaRamDetailsPresenter class >> defaultSpec [
 	| height |
 	height := OvinaLabeledInputField height.
-	^ SpecLayout composed
+	^ SpBoxLayout newVertical
 		newRow: [ :row | row add: #namePresenter; add: #chrPresenter; add: #numberPresenter  ]
 		origin: 0@0 corner: 1@0 offsetOrigin: 0@0 offsetCorner: 0@height;
 		newRow: [ :row | row add: #inDatePresenter; add: #racePresenter ]

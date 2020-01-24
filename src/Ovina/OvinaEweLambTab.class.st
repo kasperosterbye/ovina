@@ -3,7 +3,7 @@ I am the primary tab showing ewes and lambs
 "
 Class {
 	#name : #OvinaEweLambTab,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'ewesPresenter',
 		'lambsPresenter'
@@ -13,11 +13,10 @@ Class {
 
 { #category : #specs }
 OvinaEweLambTab class >> defaultSpec [
-	^SpecLayout composed
-		newRow: [ :row | 
-			row
-				add: #ewesPresenter;
-				add: #lambsPresenter ]
+	^SpBoxLayout newHorizontal
+		add: #ewesPresenter;
+		add: #lambsPresenter;
+		yourself
 ]
 
 { #category : #'as yet unclassified' }

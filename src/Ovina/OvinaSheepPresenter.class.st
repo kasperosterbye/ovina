@@ -11,7 +11,7 @@ Only one of the views 2/3 is visible at any point in time.
 "
 Class {
 	#name : #OvinaSheepPresenter,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'columnPresenter',
 		'view',
@@ -27,7 +27,7 @@ Class {
 OvinaSheepPresenter class >> defaultSpec [
 	| height |
 	height := OvinaLabeledInputField height * 2.
-	^ SpecColumnLayout composed
+	^ SpBoxLayout newVertical 
 		add: #currentView height: height;
 		add: #sheepListPresenter;
 		yourself
@@ -128,7 +128,7 @@ OvinaSheepPresenter >> createColumnList [
 { #category : #'sheep list presenter' }
 OvinaSheepPresenter >> createSheepList [
 	| presenter |
-	presenter := TreePresenter new.
+	presenter := self newTable.
 	presenter multiSelection: false.
 	presenter oddRowColor: Color veryVeryLightGray.
 	presenter
@@ -188,6 +188,15 @@ OvinaSheepPresenter >> optionalColumns [
 
 	^ self allColumns
 		reject: [ :col | self fixedColumns includes: col method selector ]
+]
+
+{ #category : #'Ugly code override' }
+OvinaSheepPresenter >> presenterAt: aName ifAbsent: aBlock [
+	"Retrieves a subpresenter of this composed presenter."
+
+	^ [ self perform: aName ]
+		on: SlotNotFound
+		do: aBlock
 ]
 
 { #category : #'column list presenter' }

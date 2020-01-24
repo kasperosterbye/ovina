@@ -4,7 +4,7 @@ I represent an inputfield with a label specifying what is in the textfield.
 "
 Class {
 	#name : #OvinaLabeledInputField,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'labelPresenter',
 		'textPresenter'
@@ -14,7 +14,7 @@ Class {
 
 { #category : #specs }
 OvinaLabeledInputField class >> defaultSpec [
-	^ SpecColumnLayout composed 
+	^ SpBoxLayout newVertical 
 		add: #labelPresenter height: self toolbarHeight; 
 		add: #textPresenter  height: self inputTextHeight ;
 		yourself.
@@ -29,7 +29,7 @@ OvinaLabeledInputField class >> height [
 OvinaLabeledInputField >> initializeWidgets [
 	"instantiation"
 	labelPresenter := self newLabel.
-	textPresenter := self instantiate: TextInputFieldPresenter.
+	textPresenter := self newTextInput .
 		
 	"configuration"
 	labelPresenter label: 'Value'.

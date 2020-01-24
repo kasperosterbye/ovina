@@ -9,7 +9,7 @@ Class {
 
 { #category : #specs }
 OvinaCommentField class >> defaultSpec [
-	^ SpecColumnLayout composed
+	^ SpBoxLayout newVertical 
 		add: #labelPresenter height: self toolbarHeight;
 		add: #textPresenter;
 		yourself

@@ -19,26 +19,15 @@ Class {
 OvinaEweDetailsPresenter class >> defaultSpec [
 	| height |
 	height := OvinaLabeledInputField height.
-	^ SpecLayout composed
-		newRow: [ :row | 
-				row
+	^ SpBoxLayout newVertical
+		add: ( SpBoxLayout newHorizontal 
 					add: #namePresenter;
 					add: #chrPresenter;
-					add: #numberPresenter ]
-			origin: 0 @ 0
-			corner: 1 @ 0
-			offsetOrigin: 0 @ 0
-			offsetCorner: 0 @ height;
-		newRow: [ :row | 
-				row
+					add: #numberPresenter);
+		add: ( SpBoxLayout newHorizontal 
 					add: #inDatePresenter;
 					add: #racePresenter;
-					add: #outDatePresenter ]
-			origin: 0 @ 0
-			corner: 1 @ 0
-			offsetOrigin: 0 @ height
-			offsetCorner: 0 @ (height * 2);
-		yourself
+					add: #outDatePresenter)
 ]
 
 { #category : #accessing }
