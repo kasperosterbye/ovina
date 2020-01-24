@@ -33,7 +33,7 @@ OvinaEweLambTab >> extent [
 OvinaEweLambTab >> initializePresenter [
 	
 	ewesPresenter selectionChangeBlock: [ :ewe | 
-		lambsPresenter sheepListPresenter roots: (OvinaLamb allOfMother: ewe) .
+		lambsPresenter sheepListPresenter items: (OvinaLamb allOfMother: ewe) .
 		].
 ]
 

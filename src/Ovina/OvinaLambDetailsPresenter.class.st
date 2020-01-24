@@ -25,31 +25,19 @@ OvinaLambDetailsPresenter class >> defaultSpec [
 	| height |
 	height := OvinaLabeledInputField height.
 	^ SpBoxLayout newVertical
-		newRow: [ :row | 
-				row
+		add: ( SpBoxLayout newHorizontal 
 					add: #numberPresenter;
 					add: #momFKPresenter;
 					add: #dadFKPresenter;
 					add: #colorPresenter;
-					add: #sexPresenter ]
-			origin: 0 @ 0
-			corner: 1 @ 0
-			offsetOrigin: 0 @ 0
-			offsetCorner: 0 @ height;
-		newRow: [ :row | 
-				row
+					add: #sexPresenter;
+					yourself );
+		add: (SpBoxLayout newHorizontal 
 					add: #inDatePresenter;
 					add: #eventPresenter;
-					add: #usagePresenter ]
-			origin: 0 @ 0
-			corner: 1 @ 0
-			offsetOrigin: 0 @ height
-			offsetCorner: 0 @ (height * 2);
-		newRow: [ :row | row add: #commentPresenter ]
-			origin: 0 @ 0
-			corner: 1 @ 0
-			offsetOrigin: 0 @ (height * 2)
-			offsetCorner: 0 @ (height * 4);
+					add: #usagePresenter;
+					yourself );
+		add: #commentPresenter;
 		yourself
 ]
 

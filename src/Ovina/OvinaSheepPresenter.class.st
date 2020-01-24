@@ -86,23 +86,21 @@ OvinaSheepPresenter >> columnPresenter: anObject [
 
 { #category : #private }
 OvinaSheepPresenter >> columnPresenterFor: columnPragma [
-	"I return a new TreeColumnPresenter for the pragma"
+	"I return a new SpStringTableColumn for the pragma"
 
 	| displayBlock colLabel |
 	displayBlock := [ :node | 
-	(columnPragma method valueWithReceiver: node content arguments: #())
+	(columnPragma method valueWithReceiver: node arguments: #())
 		asString ].
 	colLabel := (columnPragma argumentAt: 1) capitalized.
-	^ TreeColumnPresenter new
-		displayBlock: displayBlock;
-		headerLabel: colLabel;
-		headerAction: [ :x | self switchView ];
-		yourself
+	^ SpStringTableColumn  
+		title: colLabel
+		evaluated: displayBlock.
 ]
 
 { #category : #'column list presenter' }
 OvinaSheepPresenter >> columnsChanged [
-	"I update the columns shown in ramListPresenter"
+	"I update the columns shown in sheepListPresenter"
 	sheepListPresenter
 		columns: 
 			(self selectedSheepColumns  collect: [ :colPragma | self columnPresenterFor: colPragma ])
@@ -110,32 +108,43 @@ OvinaSheepPresenter >> columnsChanged [
 
 { #category : #'column list presenter' }
 OvinaSheepPresenter >> createColumnList [
-	| tree col |
-	tree := TreePresenter new.
-	tree beCheckList.
-	tree multiSelection: true.
-	tree autoMultiSelection: true.
-	tree oddRowColor: Color veryVeryLightGray.
+	| checkList |
+	checkList := SpTablePresenter new
+		addColumn: (SpCheckBoxTableColumn title: 'Medtag' evaluated: #first );
+		addColumn: (SpStringTableColumn title: 'Kolonne' evaluated: [:arr | arr second arguments first]);
+		showColumnHeaders.
+	checkList items: (self optionalColumns collect: [:col | {false. col}]).
+	^ checkList 
+]
+
+{ #category : #'column list presenter' }
+OvinaSheepPresenter >> createColumnListOld [
+	| table col |
+	table := self newList.
+	table beCheckList.
+	table beMultipleSelection .
+	table autoMultiSelection: true.
+	table oddRowColor: Color veryVeryLightGray.
 	col := TreeColumnPresenter new
 		displayBlock: [ :pragma | pragma content arguments first ];
 		headerLabel: 'Valgfri kolonner';
 		yourself.
-	tree columns: (Array with: col).
-	tree roots: self optionalColumns.
-	^ tree
+	table columns: (Array with: col).
+	table items: self optionalColumns.
+	^ table
 ]
 
 { #category : #'sheep list presenter' }
 OvinaSheepPresenter >> createSheepList [
 	| presenter |
 	presenter := self newTable.
-	presenter multiSelection: false.
-	presenter oddRowColor: Color veryVeryLightGray.
+	presenter beSingleSelection .
+	"presenter oddRowColor: Color veryVeryLightGray."
 	presenter
 		columns:
 			(self selectedSheepColumns
 				collect: [ :colName | self columnPresenterFor: colName ]).
-	presenter roots: self allSheeps.
+	presenter items: self allSheeps.
 	^ presenter
 ]
 
@@ -174,7 +183,7 @@ OvinaSheepPresenter >> initializeWidgets [
 	sheepPresenter := self detailsPresenter.
 	columnPresenter := self createColumnList.
 	sheepListPresenter := self createSheepList.
-	view := sheepPresenter
+	view := columnPresenter 
 ]
 
 { #category : #abstract }
@@ -205,7 +214,7 @@ OvinaSheepPresenter >> selectedSheepColumns [
 
 	| selectedColumnPragmas fixedColumnPragmas |
 	selectedColumnPragmas := columnPresenter selectedItems
-		collect: [ :node | node content ].
+		collect: [ :node | node second ].
 	fixedColumnPragmas := self allColumns
 		select: [ :col | self fixedColumns includes: col method selector ].
 	^ fixedColumnPragmas , selectedColumnPragmas

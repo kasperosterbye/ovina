@@ -30,7 +30,7 @@ OvinaLabeledInputField >> initializeWidgets [
 	"instantiation"
 	labelPresenter := self newLabel.
 	textPresenter := self newTextInput .
-		
+		self haltOnce.
 	"configuration"
 	labelPresenter label: 'Value'.
 	
@@ -52,7 +52,7 @@ OvinaLabeledInputField >> labelPresenter [
 
 { #category : #accessing }
 OvinaLabeledInputField >> text: aText [
-	textPresenter text: aText
+	textPresenter text: aText asString
 ]
 
 { #category : #accessing }
